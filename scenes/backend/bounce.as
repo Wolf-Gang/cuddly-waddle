@@ -1,5 +1,5 @@
 
-float g = -5;
+float g = -15;
 
 void accelerate_z(entity pEntity, float pTime, float pAccel, float pVel = 0) {
   
