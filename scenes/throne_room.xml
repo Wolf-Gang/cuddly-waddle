@@ -28,7 +28,7 @@
         <wall x="3" y="3" w="1" h="1"/>
         <wall x="5" y="3" w="1" h="1"/>
     </collisionboxes>
-    <boundary h="20" w="20"/>
+    <boundary h="20" w="10"/>
     <map>
         <texture>dungeon</texture>
         <layer id="0">
@@ -38,26 +38,27 @@
             <path_end x="3" y="3" r="1"/>
             <ground x="4" y="3" r="3"/>
             <path_end x="5" y="3" r="3"/>
-            <ground x="6" y="3" r="3"/>
-            <ground x="7" y="3" w="2"/>
+            <ground x="6" y="3" w="3" h="2"/>
             <stairs x="3" y="4" w="3"/>
-            <ground x="6" y="4" w="3"/>
             <ground x="0" y="5" w="4"/>
             <path_end x="4" y="5" r="2"/>
             <ground x="5" y="5" w="4"/>
             <groundblend x="0" y="6"/>
             <ground x="1" y="6" w="3"/>
-            <path x="4" y="6" h="11" r="1"/>
+            <path x="4" y="6" h="4" r="1"/>
             <ground x="5" y="6" w="3" h="4"/>
             <groundblend x="8" y="6"/>
             <ground x="1" y="7"/>
             <ground x="2" y="7" r="1"/>
             <ground x="3" y="7"/>
             <ground x="1" y="8" w="3" h="2"/>
+            <tiny_darkness x="2" y="9.5"/>
             <groundblend x="1" y="10" w="2"/>
             <ground x="3" y="10" h="4"/>
-            <ground x="5" y="10" h="7"/>
+            <ground x="5" y="10"/>
             <groundblend x="6" y="10" w="2"/>
+            <path x="4" y="11" h="6" r="1"/>
+            <ground x="5" y="12" h="5"/>
             <ground x="3" y="14" r="2"/>
             <wall x="2" y="15"/>
             <ground x="3" y="15" h="2"/>
@@ -69,24 +70,69 @@
         </layer>
         <layer id="1">
             <path x="4" y="3" r="2"/>
-            <wall x="2" y="5"/>
-            <wall x="6" y="5"/>
-            <wall x="2" y="7"/>
-            <wall x="6" y="7"/>
+            <ground x="2" y="5"/>
+            <ground x="6" y="5"/>
+            <ground x="2" y="7"/>
+            <ground x="6" y="7"/>
+            <path x="4" y="10" r="1"/>
+            <ground x="5" y="11" r="1"/>
             <path_end x="4" y="17"/>
         </layer>
         <layer id="2">
-            <darkness x="2" y="-1" w="5"/>
-            <darkness x="-1" y="0" w="11"/>
-            <darkness x="-2" y="1" w="11" h="2"/>
-            <darkness x="0" y="3" w="9" h="4"/>
-            <darkness x="1" y="7" w="8" h="2"/>
-            <darkness x="0" y="9" w="8"/>
-            <darkness x="1" y="10" w="8"/>
-            <darkness x="3" y="11" w="3" h="4"/>
-            <darkness x="2" y="15" w="5" h="4"/>
-            <darkness x="2" y="19" w="5" r="1"/>
-            <darkness x="1" y="20" w="6" r="1"/>
+            <darkness x="0" y="0"/>
+            <small_darkness x="2" y="0" w="6"/>
+            <darkness x="8" y="0"/>
+            <tiny_darkness x="2" y="1" h="3"/>
+            <tiny_darkness x="2.5" y="1"/>
+            <tiny_darkness x="3" y="1"/>
+            <tiny_darkness x="3.5" y="1"/>
+            <tiny_darkness x="4" y="1"/>
+            <tiny_darkness x="4.5" y="1"/>
+            <tiny_darkness x="5" y="1"/>
+            <tiny_darkness x="5.5" y="1"/>
+            <tiny_darkness x="6" y="1"/>
+            <tiny_darkness x="6.5" y="1" h="3"/>
+            <small_darkness x="7" y="1" h="3"/>
+            <tiny_darkness x="2" y="1.5" h="3"/>
+            <tiny_darkness x="6.5" y="1.5" h="3"/>
+            <darkness x="0" y="2"/>
+            <darkness x="8" y="2"/>
+            <tiny_darkness x="2.5" y="3.5"/>
+            <tiny_darkness x="3" y="3.5"/>
+            <tiny_darkness x="3.5" y="3.5"/>
+            <tiny_darkness x="4" y="3.5"/>
+            <tiny_darkness x="4.5" y="3.5"/>
+            <tiny_darkness x="5" y="3.5"/>
+            <tiny_darkness x="5.5" y="3.5"/>
+            <tiny_darkness x="6" y="3.5"/>
+            <darkness x="0" y="4"/>
+            <darkness x="2" y="4"/>
+            <darkness x="4" y="4"/>
+            <darkness x="6" y="4"/>
+            <darkness x="8" y="4"/>
+            <darkness x="0" y="6"/>
+            <darkness x="2" y="6"/>
+            <darkness x="4" y="6"/>
+            <darkness x="6" y="6"/>
+            <darkness x="8" y="6"/>
+            <darkness x="0" y="8"/>
+            <small_darkness x="2" y="8" w="6"/>
+            <tiny_darkness x="2" y="9" h="2"/>
+            <tiny_darkness x="6.5" y="9"/>
+            <small_darkness x="7" y="9"/>
+            <tiny_darkness x="6.5" y="9.5"/>
+            <tiny_darkness x="1" y="10"/>
+            <tiny_darkness x="1.5" y="10"/>
+            <darkness x="6" y="10"/>
+            <darkness x="1" y="15"/>
+            <small_darkness x="3" y="15" w="3" h="2"/>
+            <darkness x="6" y="15"/>
+            <darkness x="2" y="17"/>
+            <darkness x="4" y="17"/>
+            <darkness x="6" y="17"/>
+            <darkness x="2" y="19"/>
+            <darkness x="4" y="19"/>
+            <darkness x="6" y="19"/>
         </layer>
     </map>
 </scene>

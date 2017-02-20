@@ -239,7 +239,22 @@
 	<darkness
 	x="32"
 	y="256"
+	w="64"
+	h="64"/>
+	<dark_circle
+	x="96"
+	y="256"
+	w="64"
+	h="64"
+	frames="2" interval="100" loop="1"/>
+	<small_darkness
+	x="0"
+	y="288"
 	w="32"
-	h="32"
-	/>
+	h="32"/>
+	<tiny_darkness
+	x="224"
+	y="256"
+	w="16"
+	h="16"/>
 </atlas>
