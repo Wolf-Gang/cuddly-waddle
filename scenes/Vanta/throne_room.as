@@ -27,7 +27,7 @@ void create_column(vec pPosition)
 void create_columns()
 {
 	create_column(vec(2.5, 5.75));
-    create_column(vec(6.5, 5.75));
+  create_column(vec(6.5, 5.75));
 	create_column(vec(2.5, 7.75));
 	create_column(vec(6.5, 7.75));
 

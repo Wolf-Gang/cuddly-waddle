@@ -68,7 +68,7 @@ void wall_crack() {
     player::lock(false);
   } else {
     say("It appears you can fit\nthrough now.");
-    load_scene("room2");
+    load_scene("spoop/room2");
   }
 }
 

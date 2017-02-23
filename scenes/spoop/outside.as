@@ -2,6 +2,7 @@
 entity spoopy;
 entity alpa;
 array<entity> magic;
+bool do_spin = true;
 
 [start]
 void start() {
@@ -38,7 +39,8 @@ void stupid_magic_function_thingy_because_spinning_is_hard() {
     for(int i = 0; i < 3; i++) {
       set_rotation(magic[i], theta);
     }
-  } while(yield());
+    yield();
+  } while(do_spin);
 }
 
 [group magical]
@@ -190,6 +192,8 @@ void alpa_v_spoop() {
   //death animation
   remove_entity(alpa);
   
+  do_spin = false;
+  
   for(int i = 0; i < 3; i++) {
     remove_entity(magic[i]);
   }
@@ -215,7 +219,6 @@ void alpa_v_spoop() {
   focus::move(get_position(get_player()), .15 * pl_pos.distance(mid));
   focus::player();
   group::enable("alpa", false);
-  remove_entity(spoopy);
   player::lock(false);
 }
 

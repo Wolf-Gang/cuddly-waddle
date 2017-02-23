@@ -7,8 +7,8 @@
             <ground x="0" y="5" w="9"/>
             <ground x="1" y="6" w="7" h="3"/>
             <ground x="0" y="9" w="9"/>
-            <ground x="1" y="10" w="7"/>
-            <ground x="1" y="11" w="7"/>
+            <ground x="1" y="10" w="7" h="2"/>
+            <ground x="4" y="12"/>
         </layer>
         <layer id="0">
             <wall_top_ce x="0" y="1" r="2"/>
@@ -77,7 +77,7 @@
         <wall x="-0.5" y="9" w="1" h="1" group="door"/>
         <button x="-0.5" y="9" w="1" h="1" group="door"/>
         <wall x="4" y="13" w="1" h="1"/>
-        <door x="4" y="12" w="1" h="1" name="outside" destination="inside" scene="spoop/outside" offsetx="0" offsety="-1"/>
+        <door x="4" y="12" w="1" h="1" name="outside" destination="inside" scene="spoop/outside" offsetx="0" offsety="-0.5"/>
         <wall x="4" y="12" w="1" h="1" group="freedom"/>
         <button x="1" y="2" w="1" h="1" group="button0"/>
         <button x="4" y="2" w="1" h="1" group="button1"/>

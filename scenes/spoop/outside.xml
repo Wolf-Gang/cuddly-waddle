@@ -22,7 +22,7 @@
         </layer>
         <layer id="2">
             <sign x="14" y="6"/>
-            <door x="7" y="20"/>
+            <door_open x="7" y="20"/>
             <door x="23" y="20"/>
             <door x="44" y="20"/>
         </layer>
@@ -30,7 +30,6 @@
     <collisionboxes>
         <door x="7" y="20" w="1" h="1" name="inside" destination="outside" scene="spoop/hallway" offsetx="0" offsety="1"/>
         <button x="7" y="20" w="1" h="1" group="funtimes"/>
-        <wall x="0" y="20" w="31" h="1" group="buildawall"/>
         <wall x="-1" y="21" w="1" h="3"/>
         <wall x="37" y="20" w="13" h="1"/>
         <wall x="50" y="8" w="1" h="3"/>
@@ -50,5 +49,10 @@
         <trigger x="23" y="8" w="1" h="3" group="alpa"/>
         <trigger x="16" y="0" w="5" h="1" group="fin"/>
         <trigger x="9" y="22" w="1" h="1" group="skip_thing"/>
+        <wall x="7" y="19" w="1" h="1" group="buildawall"/>
+        <wall x="0" y="20" w="7" h="1" group="buildawall"/>
+        <wall x="8" y="20" w="23" h="1" group="buildawall"/>
+        <door x="7" y="20" w="1" h="1" group="buildawall" name="" destination="" scene="" offsetx="0" offsety="0"/>
+        <door x="7" y="20" w="1" h="1" group="buildawall" name="outside" destination="inside" scene="spoop/hallway" offsetx="0" offsety="0"/>
     </collisionboxes>
 </scene>
