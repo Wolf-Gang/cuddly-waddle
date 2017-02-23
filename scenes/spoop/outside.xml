@@ -28,7 +28,7 @@
         </layer>
     </map>
     <collisionboxes>
-        <door x="7" y="20" w="1" h="1" name="inside" destination="outside" scene="hallway" offsetx="0" offsety="1"/>
+        <door x="7" y="20" w="1" h="1" name="inside" destination="outside" scene="spoop/hallway" offsetx="0" offsety="1"/>
         <button x="7" y="20" w="1" h="1" group="funtimes"/>
         <wall x="0" y="20" w="31" h="1" group="buildawall"/>
         <wall x="-1" y="21" w="1" h="3"/>

@@ -41,11 +41,6 @@ void stupid_magic_function_thingy_because_spinning_is_hard() {
   } while(yield());
 }
 
-[group funtimes]
-void go_back() {
-  load_scene("hallway");
-}
-
 [group magical]
 void magic_sign() {
   say("This is a magic sign!");
@@ -236,5 +231,5 @@ void skipp() {
 
 [group fin]
 void finalee() {
-  load_scene("fin");
+  load_scene("spoop/fin");
 }

@@ -80,5 +80,5 @@ void test_room() {
 [group extra]
 void extra_room() 
 {
-	load_scene("Dark_Room");
+	load_scene("vanta/Dark_Room");
 }
