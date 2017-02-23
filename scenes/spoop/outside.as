@@ -233,3 +233,4 @@ void skipp() {
 void finalee() {
   load_scene("spoop/fin");
 }
+
