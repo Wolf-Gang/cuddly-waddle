@@ -1,3 +1,26 @@
+//basically the sine function
+
+void float_entity(entity e) //sine f(x) with amp=1 and freq=2pi
+{
+	for(float t = 0; t <= 2 * 3.14; t += get_delta())
+	{
+		set_z(e, sin(t));
+		
+		yield();
+	}
+}
+
+void float_entity(entity e, float a, float b) //y = a * sin(bx + c) + d
+{
+	for(float t = 0; t <= (2 * 3.14) * b; t += get_delta())
+	{
+		set_z(e, a * sin(t / b));
+		
+		yield();
+	}
+	
+}
+
 
 void float_e(entity floater, float height) {
   
