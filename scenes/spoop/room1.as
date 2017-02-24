@@ -5,12 +5,12 @@ entity food1;
 
 [start]
 void start() {
-  
   set_position(get_player(), vec(0.5, 3));
   group::enable("food", false);
   set_z(get_player(), 0);
   door = add_entity("spoop_tilemap", "door");
   set_position(door, vec(6.76, 5));
+  fx::fade_in(.5);
 }
 
 [start]

@@ -19,7 +19,7 @@ void start() {
   
   set_position(get_player(), vec(5.5, 4.7));
   
-  spoop = make_spoop(vec(5.5, 7.7), "back_up");
+  spoop = make_spoopy(vec(5.5, 7.7), "back_up");
   
   vanta = add_entity("vanta");
   billy = add_entity("someguy");
@@ -54,7 +54,10 @@ void talk_spoop() {
   switch(select("Yes", "No")) {
     case option::first:
       create_thread(function(args) {fx::fade_out(3);});
-      say("Heh heh heh heh heh heh");
+      narrative::set_skip(false);
+      narrative::set_speed(13);
+      fsay("We shall see.");
+      wait(3);
       load_scene("spoop/room1");
       break;
     case option::second:
@@ -102,3 +105,4 @@ void talk_billy() {
   narrative::end();
   player::lock(false);
 }
+

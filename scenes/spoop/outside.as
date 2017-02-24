@@ -1,5 +1,6 @@
+#include "entities/spoopy.as"
 
-entity spoopy;
+entity spoop;
 entity alpa;
 array<entity> magic;
 bool do_spin = true;
@@ -12,12 +13,16 @@ void start() {
 
 [start]
 void tension() {
-  spoopy = make_spoop(vec(18.5, 6.8), "back_up_talk");
-  set_depth(spoopy, 0);
-  
-  alpa = add_entity("vanta");
-  set_depth(alpa, 1000);
-  set_position(alpa, vec(18.5, 3.5));
+  if(has_flag("alpa_ded")) {
+    group::enable("alpa", false);
+  } else {
+    spoop = make_spoopy(vec(18.5, 6.8), "back_up_talk");
+    set_depth(spoop, 0);
+    
+    alpa = add_entity("vanta");
+    set_depth(alpa, 1000);
+    set_position(alpa, vec(18.5, 3.5));
+  }
 }
 
 [start]
@@ -57,7 +62,7 @@ void magic_sign() {
   player::lock(false);
 }
 
-[group spoop]
+/*[group spoop]
 void spoop() {
   
   player::lock(true);
@@ -65,7 +70,7 @@ void spoop() {
   narrative::set_skip(false);
   
   vec pl_pos = get_position(get_player());
-  vec mid = vec(get_position(spoopy).x, pl_pos.y);
+  vec mid = vec(get_position(spoop).x, pl_pos.y);
   
   set_direction(get_player(), direction::up);
   
@@ -73,10 +78,10 @@ void spoop() {
   focus::move(mid, 1.1 * pl_pos.distance(mid));
   
   wait(1);
-  focus::move(get_position(spoopy), 3);
+  focus::move(get_position(spoop), 3);
   
-  narrative::set_speaker(spoopy);
-  set_atlas(spoopy, "talk_blank");
+  narrative::set_speaker(spoop);
+  set_atlas(spoop, "talk_blank");
   say("...Hmm?");
   wait(.7);
   
@@ -98,7 +103,7 @@ void spoop() {
   if(has_flag("normal_text"))
     narrative::set_interval(30);
   
-  narrative::set_speaker(spoopy);
+  narrative::set_speaker(spoop);
   say("I guess I should take care of\nthis.");
   wait(1.5);
   narrative::end();
@@ -118,7 +123,7 @@ void spoop() {
   //remove_entity(spoopy);
   narrative::set_skip(true);
   player::lock(false);
-}
+}*/
 
 [group alpa]
 void alpa_v_spoop() {
@@ -128,8 +133,8 @@ void alpa_v_spoop() {
   narrative::set_skip(false);
   
   vec pl_pos = get_position(get_player());
-  vec mid = vec(get_position(spoopy).x, pl_pos.y);
-  vec final = midpoint(get_position(spoopy), get_position(alpa)) + vec(0, .5);
+  vec mid = vec(get_position(spoop).x, pl_pos.y);
+  vec final = midpoint(get_position(spoop), get_position(alpa)) + vec(0, .5);
   
   set_direction(get_player(), direction::left);
   
@@ -150,9 +155,9 @@ void alpa_v_spoop() {
   narrative::hide();
   
   set_depth(magic[0], 255);
-  move(magic[0], get_position(spoopy) + vec(0, -.3), .5);
+  move(magic[0], get_position(spoop) + vec(0, -.3), .5);
   
-  narrative::set_speaker(spoopy);
+  narrative::set_speaker(spoop);
   wait(.5);
   
   say("Heh heh heh.");
@@ -163,15 +168,15 @@ void alpa_v_spoop() {
   
   {
    vec target = get_position(alpa) + vec(0, -.5);
-   speed s_shot = speed(get_position(spoopy).distance(get_position(alpa))/.15);
+   speed s_shot = speed(get_position(spoop).distance(get_position(alpa))/.15);
    
    move(magic[0], target, s_shot);
    
    wait(.5);
    
-   set_position(magic[1], get_position(spoopy) + vec(-2, .5));
+   set_position(magic[1], get_position(spoop) + vec(-2, .5));
    wait(.1);
-   set_position(magic[2], get_position(spoopy) + vec(2, .5));
+   set_position(magic[2], get_position(spoop) + vec(2, .5));
    
    set_visible(magic[1], true);
    wait(.25);
@@ -188,8 +193,8 @@ void alpa_v_spoop() {
    narrative::hide();
    
    for(int i =0; i < 5; i++) {
-     set_position(magic[1], get_position(spoopy) + vec(-2, .5));
-     set_position(magic[2], get_position(spoopy) + vec(2, .5));
+     set_position(magic[1], get_position(spoop) + vec(-2, .5));
+     set_position(magic[2], get_position(spoop) + vec(2, .5));
      move(magic[1], target, s_shot);
      move(magic[2], target, s_shot);
    }
@@ -211,12 +216,12 @@ void alpa_v_spoop() {
   narrative::set_skip(true);
   narrative::end();
   
-  set_atlas(spoopy, "back_up");
-  start_animation(spoopy);
+  set_atlas(spoop, "back_up");
+  start_animation(spoop);
   
   create_thread(function(args)
   {
-    move(spoopy, vec(18.5, -15), speed(2));
+    move(spoop, vec(18.5, -15), speed(2));
   });
   
   wait(3);
@@ -224,6 +229,7 @@ void alpa_v_spoop() {
   focus::move(mid, .15 * mid.distance(focus::get()));
   focus::move(get_position(get_player()), .15 * pl_pos.distance(mid));
   focus::player();
+  set_flag("alpa_ded");
   group::enable("alpa", false);
   player::lock(false);
 }
@@ -238,7 +244,7 @@ void to_spoop() {
 [group skip_thing]
 void skipp() {
   if(is_triggered(control::menu)) {
-    set_position(get_player(), get_position(spoopy));
+    set_position(get_player(), get_position(spoop));
   }
 }
 
