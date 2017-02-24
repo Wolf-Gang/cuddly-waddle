@@ -37,7 +37,7 @@ void create_bushes()
 [group thing]
 void boo()
 {
-	//once_flag("aseryahdg");
+	once_flag("aseryahdg");
 	scoped_entity guy = add_character("someguy");
 	set_position(guy, vec(2.5, 13.3));
 	move(guy, direction::right, 2, speed(3));
@@ -56,7 +56,7 @@ void create_billy()
 [group thing2]
 void thing2()
 {
-	//once_flag("sdfasdfa");
+	once_flag("sdfasdfa");
 	player::lock(true);
 	
 	const vec player_billy_mp = midpoint(get_position(get_player()), get_position(billy));
@@ -107,4 +107,13 @@ void start()
 	set_position(get_player(), vec(3.5, 34.5));
 	set_direction(get_player(), direction::up);
 	music::open("doodle89");
+	
+	entity test = add_entity("test/alpa");
+	set_position(test, vec(3.5, 34.5));
 }
+[group door]
+void next_scene()
+{
+	
+}
+
