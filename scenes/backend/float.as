@@ -10,13 +10,7 @@ void float_entity(entity e, float a = 1, float b = 1) //y = a * sin(bx + c) + d
 	}
 }
 
-void float_loop(entity e, float a = 1, float b = 1) {
-  do {
-    float_entity(e, a, b);
-  } while(yield());
-}
-
-//pretty much the same as above, but you can set the number of cycles it does 
+//the same as above, but you can set the number of cycles it does 
 //with negatives being infinite
 void float_entity(entity floater, float height, float period, float cycles) {
   

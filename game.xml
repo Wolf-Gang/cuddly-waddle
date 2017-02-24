@@ -1,7 +1,7 @@
 <game>
 	<scene  name="hub"/>
 	
-	<player texture="voidian"/>
+	<player texture="somedude1"/>
 	
 	<tile_size pixels="32"/>
 	

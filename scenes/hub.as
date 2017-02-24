@@ -6,18 +6,19 @@ entity billy;
 
 [start]
 void start() {
-  set_position(get_player(), vec(100, 100));
+  set_position(get_player(), vec(5.5, 100));
   
+  narrative::set_skip(false);
   say("So, you wish to challenge me?");
-  say("Very well.\n");
-  append("But I will have to test you\nfirst.");
+  append("\nVery well.");
+  say("But I will have to test you\nfirst.");
   say("If you can defeat my minions,\nI will face you.");
   say("Until you have proven yourself,\ndo not return.");
   narrative::end();
   fx::fade_out(.1);
   player::lock(false);
   
-  set_position(get_player(), vec(5.5, 4.7));
+  set_position(get_player(), vec(5.5, 2.7));
   
   spoop = make_spoopy(vec(5.5, 7.7), "back_up");
   
@@ -34,28 +35,41 @@ void start() {
   fx::fade_in(3);
 }
 
-[group cuddle]
-void test() {
+[start]
+void make_circle() {
+  group::enable("circle", false);
+  entity circle;
   if(has_flag("spoopy") && has_flag("vanta") && has_flag("billy")) {
-    //go to final boss
+    
+    group::enable("circle", true);
   } else {
-    fsay("You have not yet proven\nyourself.\n");
-    say("Return when you have completed\nyour task.");
-    move(get_player(), vec(get_position(get_player()).x, 2.5), .25);
-    narrative::end();
-    player::lock(false);
+    circle = add_entity("hub", "circle");
   }
+  set_position(circle, vec(5.5, 3));
+  set_depth(circle, fixed_depth::background);
+}
+
+[group circle]
+void the_end() {
+  narrative::set_skip(false);
+  set_position(get_player(), vec(5.5, 100));
+  say("Well done.");
+  say("I guess I have to keep my promise\nnow, don't I?");
+  say("Ho ho! This will be fun.");
+  //to final boss scene(s)
+  narrative::end();
+  player::lock(false);
 }
 
 [group spooper]
 void talk_spoop() {
   narrative::set_speaker(spoop);
+  narrative::set_skip(false);
+  narrative::set_speed(13);
   fsay("So you think you can best me?");
   switch(select("Yes", "No")) {
     case option::first:
       create_thread(function(args) {fx::fade_out(3);});
-      narrative::set_skip(false);
-      narrative::set_speed(13);
       fsay("We shall see.");
       wait(3);
       load_scene("spoop/room1");
