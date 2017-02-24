@@ -1,7 +1,7 @@
 <scene name="Room 1">
     <boundary w="6" h="7"/>
     <map>
-        <texture>dungeon</texture>
+        <texture>spoop_tilemap</texture>
         <layer id="0">
             <wall_top_ce x="-1" y="0" r="2"/>
             <wall_top x="0" y="0" w="6" r="2"/>

@@ -7,9 +7,9 @@ entity door1;
 void start()
 {
   set_position(get_player(), vec(4.5, 12));
-  door = add_entity("dungeon", "door");
+  door = add_entity("spoop_tilemap", "door");
   set_position(door, vec(4.5, 13));
-  door1 = add_entity("dungeon", "door");
+  door1 = add_entity("spoop_tilemap", "door");
   set_position(door1, vec(0.22, 10));
 }
 
@@ -26,9 +26,9 @@ void make_buttons() {
   buttons.resize(3);
   for(int i = 0; i < 3; i++) {
     if(has_flag("button" + i)) {
-      buttons[i] = add_entity("dungeon", "button_p");
+      buttons[i] = add_entity("spoop_tilemap", "button_p");
     } else {
-      buttons[i] = add_entity("dungeon", "button");
+      buttons[i] = add_entity("spoop_tilemap", "button");
     }
     set_position(buttons[i], vec(1.5 + 3 * i, 3));
   }

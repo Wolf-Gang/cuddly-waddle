@@ -4,9 +4,8 @@ entity clar;
 
 [start]
 void start() {
-  spoopy = add_entity("spoopy");
-  set_atlas(spoopy, "back_up");
-  set_position(spoopy, vec(.5, -2));
+  spoop = make_spoop(vec(.5, -2), "back_up");
+  
   set_position(get_player(), vec(.5, 11));
   set_direction(get_player(), direction::up);
 }

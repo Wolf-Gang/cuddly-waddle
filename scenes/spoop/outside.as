@@ -12,9 +12,9 @@ void start() {
 
 [start]
 void tension() {
-  spoopy = add_entity("spoopy", "back_up_talk");
+  spoopy = make_spoop(vec(18.5, 6.8), "back_up_talk");
   set_depth(spoopy, 0);
-  set_position(spoopy, vec(18.5, 6.8));
+  
   alpa = add_entity("vanta");
   set_depth(alpa, 1000);
   set_position(alpa, vec(18.5, 3.5));

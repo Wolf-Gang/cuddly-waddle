@@ -1,8 +1,7 @@
 <scene name="Fin">
     <map>
-        <texture>light</texture>
+        <texture>spoop_tilemap</texture>
         <layer id="0">
-            <path x="0" y="7"/>
         </layer>
     </map>
     <collisionboxes>
