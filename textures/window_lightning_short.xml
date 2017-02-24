@@ -4,5 +4,5 @@
 	y="y"
 	w="64"
 	h="64"
-	frames="6" interval="100"/>
+	frames="8" interval="100"/>
 </atlas>

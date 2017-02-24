@@ -86,14 +86,14 @@ void talk_spoop() {
 [group the_king?]
 void talk_vanta() {
   narrative::set_speaker(vanta);
-  fsay("Do it.");
+  fsay("Do you dare to defeat the \nalmighty Vanta?");
   switch(select("Yes", "No")) {
     case option::first:
-      say("Good.");
+      say("En garde!");
       load_scene("Vanta/dark_room");
       break;
     case option::second:
-      say("...");
+      say("How pathetic.");
       break;
     default:
   }

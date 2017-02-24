@@ -7,9 +7,9 @@ entity vanta;
 void start()
 {
 	//temporary
-	set_position(get_player(), vec(4.5, 10));
+	//set_position(get_player(), vec(4.5, 10));
 	set_direction(get_player(), direction::up);
-	//set_position(get_player(), vec(4.5, 19));
+	set_position(get_player(), vec(4.5, 19));
 	
 	entity tDarkness = add_entity("dark_texture", "darkness");
 	set_position(tDarkness, vec(4.5, 21));
@@ -53,16 +53,15 @@ entity create_lightning(vec pPosition)
 	return wLight;
 }
 
-/*[start]
-void animate_lightning()
+void do_thunder()
 {
-	entity leftLight  = create_lightning(vec(3.5, 2));
-	entity rightLight = create_lightning(vec(5.5, 2));
-	
-	start_animation(leftLight);
-	start_animation(rightLight);
-	
-}*/
+	wait(random(1, 3));
+	float s = random(1, 3);
+	if(s == 1)
+		fx::sound("thunder1", 40);
+	if(s == 2)
+		fx::sound("thunder2", 40);
+}
 
 [start]
 void do_lightning() {
@@ -71,6 +70,7 @@ void do_lightning() {
   
   float t;
   float r;
+  float s;
   
   do {
     
@@ -84,6 +84,8 @@ void do_lightning() {
     dprint(formatFloat(t));
     start_animation(leftLight);
     start_animation(rightLight);
+
+	//do_thunder();
     
     r = random(2, 17);
     
@@ -95,6 +97,9 @@ void do_lightning() {
       
       start_animation(leftLight);
       start_animation(rightLight);
+	  
+	  //do_thunder();
+	  
     }
     
   } while(yield());
@@ -207,29 +212,31 @@ void animate_torch(int k)
 [group step2]
 void light_torch2()
 {
+	once_flag("torch2");
+	
 	light_torch(2);
 	animate_torch(2);
-	
-	once_flag("torch2");
 	
 }
 
 [group step1]
 void light_torch1()
 {
-	light_torch(1);
-	animate_torch(1);
-	
 	once_flag("torch1");
+
+	light_torch(1);
+	animate_torch(1);	
+	
 }
 
 [group step0]
 void light_torch0()
 {
+	once_flag("torch0");
+	
 	light_torch(0);
 	animate_torch(0);
 	
-	once_flag("torch0");
 }
 
 [group vanta]
@@ -266,14 +273,12 @@ void vanta_black()
 	fsay("Why the incredulous look, \nchild?");
 	
 	wait(2);
-	
 	say("Do you not remember me?");
 	int opt = select("I remember you!", "Who are you?");
 	if(opt == 0)
 	{
 		set_flag("remembered"); 
 		//set expression to calm 
-		//set_atlas(vanta, "talk_happy");
 		fsay("Yes, yes. Of course you do.");
 		wait(0.5);
 	}
@@ -281,29 +286,25 @@ void vanta_black()
 	{
 		set_flag("forgotten");
 		//set expression to annoyed
-		//set_atlas(vanta, "talk_sinister");
 		fsay("Don't play the fool, \nignorant child!");
 		wait(0.25);
 	}
-	//set_atlas(vanta, "talk_squint");
+	
 	say("Everyone in the Void knows \nof me.");
 	say("For it is I...");
-	//Vanta approaches player, change sprite animation
-	move(vanta, vec(4.5, 3.75), 1);
-	//set_atlas(vanta, "talk_sinister");
+	
+	move(vanta, vec(4.5, 1.75), 1);
+	//change sprite 
+	wait(1);
 	fsay("THE GREAT");
 	wait(1);
-	move(vanta, vec(4.5, 4), 0.75);
 	//thunder and lightning; make sure to show lightning first then thunder
+	
 	fsay("VANTA");
-	wait(0.5);
-	move(vanta, vec(4.5, 4.5), 0.50);
-	wait(0.5);
+	wait(1);
 	say("BLACK!");
+	
 	//more thunder+lightning and battle commence
-	wait(2);
-	say("By the way, I'm cosplaying \nas Spoopy-senpai");
-	say("SPOOPY-SENPAI, PLEASE \nNOTICE ME!");
 	
 	narrative::end();
 	
@@ -315,6 +316,29 @@ void vanta_black()
 	also add expressions in narrative box
 	
 	*/
+
+}
+
+[group vanta_talk]
+void talk_to_vanta()
+{
+	player::lock(true);
 	
+	focus::move(get_position(vanta), 2);
+	
+	narrative::set_speaker(vanta);
+	set_atlas(vanta, "talk");
+	
+	fsay("I swear...");
+	wait(1);
+	
+	say("I will defeat you one day!");
+	
+	narrative::end();
+	
+	focus::move(get_position(get_player()), 1);
+	focus::player();
+	
+	player::lock(false);
 }
 

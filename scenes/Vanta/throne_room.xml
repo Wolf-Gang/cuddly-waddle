@@ -27,6 +27,9 @@
         <trigger x="6" y="5" w="1" h="1" group="vanta"/>
         <wall x="2" y="3" w="1" h="1"/>
         <wall x="6" y="3" w="1" h="1"/>
+        <trigger x="1" y="5" w="1" h="1" group="vanta"/>
+        <button x="4" y="3" w="1" h="1" group="vanta_talk"/>
+        <trigger x="4" y="9" w="1" h="1" group="start_thunder"/>
     </collisionboxes>
     <boundary h="21" w="9"/>
     <map>
