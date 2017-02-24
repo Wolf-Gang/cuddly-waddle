@@ -37,7 +37,7 @@ void create_bushes()
 [group thing]
 void boo()
 {
-	//once_flag("aseryahdg");
+	once_flag("aseryahdg");
 	scoped_entity guy = add_character("someguy");
 	set_position(guy, vec(2.5, 13.3));
 	move(guy, direction::right, 2, speed(3));
@@ -48,6 +48,8 @@ entity billy;
 [start]
 void create_billy()
 {
+	if (has_flag("billy_asdfsadf"))
+		return;
 	billy = add_character("someguy");
 	set_position(billy, vec(3.5, 6.5));
 	set_color(billy, 0, 0, 0);
@@ -56,7 +58,7 @@ void create_billy()
 [group thing2]
 void thing2()
 {
-	//once_flag("sdfasdfa");
+	once_flag("billy_asdfsadf");
 	player::lock(true);
 	
 	const vec player_billy_mp = midpoint(get_position(get_player()), get_position(billy));
