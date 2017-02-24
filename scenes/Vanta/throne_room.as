@@ -273,7 +273,7 @@ void vanta_black()
 	fsay("Why the incredulous look, \nchild?");
 	
 	wait(2);
-	say("Do you not remember me?");
+	fsay("Do you not remember me?");
 	int opt = select("I remember you!", "Who are you?");
 	if(opt == 0)
 	{
