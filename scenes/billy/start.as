@@ -48,6 +48,8 @@ entity billy;
 [start]
 void create_billy()
 {
+	if (has_flag("billy_asdfsadf"))
+		return;
 	billy = add_character("someguy");
 	set_position(billy, vec(3.5, 6.5));
 	set_color(billy, 0, 0, 0);
@@ -56,7 +58,7 @@ void create_billy()
 [group thing2]
 void thing2()
 {
-	once_flag("sdfasdfa");
+	once_flag("billy_asdfsadf");
 	player::lock(true);
 	
 	const vec player_billy_mp = midpoint(get_position(get_player()), get_position(billy));
@@ -107,13 +109,4 @@ void start()
 	set_position(get_player(), vec(3.5, 34.5));
 	set_direction(get_player(), direction::up);
 	music::open("doodle89");
-	
-	entity test = add_entity("test/alpa");
-	set_position(test, vec(3.5, 34.5));
 }
-[group door]
-void next_scene()
-{
-	
-}
-
