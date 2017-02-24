@@ -1,4 +1,5 @@
-#include "backend/float.as"
+
+#include "../backend/float.as"
 
 entity vanta;
 
@@ -44,6 +45,24 @@ void create_windows()
 	create_window(vec(5.5, 2));
 }
 
+entity create_lightning(vec pPosition)
+{
+	entity wLight = add_entity("window_lightning", "flash");
+	set_position(wLight, pPosition);
+	set_depth(wLight, fixed_depth::overlay);
+	return wLight;
+}
+
+[start]
+void animate_lightning()
+{
+	entity leftLight  = create_lightning(vec(3.5, 2));
+	entity rightLight = create_lightning(vec(5.5, 2));
+	
+	start_animation(leftLight);
+	start_animation(rightLight);
+	
+}
 void create_column(vec pPosition)
 {
 	entity column1 = add_entity("dungeon","pillar");
@@ -261,3 +280,4 @@ void vanta_black()
 	*/
 	
 }
+
