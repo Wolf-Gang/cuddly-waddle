@@ -1,10 +1,11 @@
+#include "entities/spoopy.as"
 
-entity spoopy;
+entity spoop;
 entity clar;
 
 [start]
 void start() {
-  spoop = make_spoop(vec(.5, -2), "back_up");
+  spoop = make_spoopy(vec(.5, -2), "back_up");
   
   set_position(get_player(), vec(.5, 11));
   set_direction(get_player(), direction::up);
