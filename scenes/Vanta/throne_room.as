@@ -1,22 +1,67 @@
+#include "../backend/float.as"
+
 entity vanta;
 
 [start]
 void start()
 {
 	//temporary
-	//set_position(get_player(), vec(4.5, 10));
+	set_position(get_player(), vec(4.5, 10));
 	set_direction(get_player(), direction::up);
-	set_position(get_player(), vec(4.5, 19));
+	//set_position(get_player(), vec(4.5, 19));
+	
+	entity tDarkness = add_entity("dark_texture", "darkness");
+	set_position(tDarkness, vec(4.5, 21));
+	set_depth(tDarkness, 0);
 }
 
 [start]
 void create_vanta()
 {
-	//gonna change the sprite later; spoopy is temporary
-	vanta = add_entity("spoopyer", "default:down");
-	set_position(vanta, vec(4.5, 3.5));
+	vanta = add_entity("vanta", "default:default");
+	set_position(vanta, vec(4.5, 2.5));
+	set_depth(vanta, 1);
+	start_animation(vanta);
+	
+	do{
+		float_entity(vanta, 0.3, 1);
+	}while(yield());
 }
 
+void create_window(vec pPosition)
+{
+	//windows will be animated later
+	entity window1 = add_entity("window", "rain");
+	set_position(window1, pPosition);
+	set_depth(window1, fixed_depth::below);
+	start_animation(window1);
+}
+
+[start]
+void create_windows()
+{
+	create_window(vec(3.5, 2));
+	create_window(vec(5.5, 2));
+}
+
+entity create_lightning(vec pPosition)
+{
+	entity wLight = add_entity("window_lightning", "flash");
+	set_position(wLight, pPosition);
+	set_depth(wLight, fixed_depth::overlay);
+	return wLight;
+}
+
+[start]
+void animate_lightning()
+{
+	entity leftLight  = create_lightning(vec(3.5, 2));
+	entity rightLight = create_lightning(vec(5.5, 2));
+	
+	start_animation(leftLight);
+	start_animation(rightLight);
+	
+}
 void create_column(vec pPosition)
 {
 	entity column1 = add_entity("dungeon","pillar");
@@ -26,46 +71,64 @@ void create_column(vec pPosition)
 [start]
 void create_columns()
 {
-	create_column(vec(2.5, 5.75));
-  create_column(vec(6.5, 5.75));
-	create_column(vec(2.5, 7.75));
-	create_column(vec(6.5, 7.75));
+	create_column(vec(2.5, 6.75));
+    create_column(vec(6.5, 6.75));
+	create_column(vec(2.5, 8.75));
+	create_column(vec(6.5, 8.75));
+}
 
+entity create_darkness(vec pPosition)
+{
+	entity darkness = add_entity("dark_light_up", "dark");
+	set_position(darkness, pPosition);
+	set_depth(darkness, 0);
+	return darkness;
 }
 
 entity create_torch(vec pPosition)
 {
 	entity torch = add_entity("torch", "torch");
 	set_position(torch, pPosition);
-	set_depth(torch, fixed_depth::below);
 	return torch;
 }
 
-class torch_pair
+class pair
 {
 	entity left;
 	entity right;
 };
 
-array<torch_pair> torches(3);
+array<pair> torches(3);
+array<pair> darks(3);
 
 [start]
 void create_torches()
 {
-	for(uint k = 0; k < 3; k++)
+	for(int k = 0; k < 3; k++)
 	{
 		torches[k].left = create_torch(vec(3.5, (k*2) + 11));
 		torches[k].right = create_torch(vec(5.5, (k*2) + 11));
+		darks[k].left = create_darkness(vec(3.5, (k*2) + 11));
+		darks[k].right = create_darkness(vec(5.5, (k*2) + 11));
 	}
 	
-	entity left_torch   = create_torch(vec(3.5, 3.5));
-	entity right_torch = create_torch(vec(5.5, 3.5));
+	entity left_torch   = create_torch(vec(2.5, 3.5));
+	entity right_torch = create_torch(vec(6.5, 3.5)); 
+	entity left_dark = create_darkness(vec(2.5, 3.5));
+	entity right_dark = create_darkness(vec(6.5, 3.5)); 
 	
 	set_atlas(left_torch, "light");
 	set_atlas(right_torch, "light");
+	set_atlas(left_dark, "flicker");
+	set_atlas(right_dark, "flicker");
 	
 	start_animation(left_torch);
 	start_animation(right_torch);
+	start_animation(left_dark);
+	start_animation(right_dark);
+	
+	set_depth_fixed(left_torch, false);
+	set_depth_fixed(right_torch, false);
 }
 
 void light_torch(int k)
@@ -74,9 +137,14 @@ void light_torch(int k)
 	set_atlas(torches[k].left, "ignite");
 	set_atlas(torches[k].right, "ignite");
 	
+	set_atlas(darks[k].left, "light");
+	set_atlas(darks[k].right, "light");
 	
 	start_animation(torches[k].left);
 	start_animation(torches[k].right);
+	
+	start_animation(darks[k].left);
+	start_animation(darks[k].right);
 	
 	wait(0.80);
 	
@@ -87,9 +155,15 @@ void animate_torch(int k)
 {
 	set_atlas(torches[k].left, "light");
 	set_atlas(torches[k].right, "light");
+	
+	set_atlas(darks[k].left, "flicker");
+	set_atlas(darks[k].right, "flicker");
 				
 	start_animation(torches[k].left);
 	start_animation(torches[k].right);
+	
+	start_animation(darks[k].left);
+	start_animation(darks[k].right);
 }
 
 [group step2]
@@ -123,6 +197,7 @@ void light_torch0()
 [group vanta]
 void vanta_black()
 {
+	once_flag("potatoes");
 	player::lock(true);
 	
 	wait(1);
@@ -149,7 +224,7 @@ void vanta_black()
 	
 	narrative::set_interval(30);
 	narrative::set_speaker(vanta);
-	set_atlas(vanta, "talk_squint");
+	//set_atlas(vanta, "talk_squint");
 	fsay("Why the incredulous look, \nchild?");
 	
 	wait(2);
@@ -160,7 +235,7 @@ void vanta_black()
 	{
 		set_flag("remembered"); 
 		//set expression to calm 
-		set_atlas(vanta, "talk_happy");
+		//set_atlas(vanta, "talk_happy");
 		fsay("Yes, yes. Of course you do.");
 		wait(0.5);
 	}
@@ -168,16 +243,16 @@ void vanta_black()
 	{
 		set_flag("forgotten");
 		//set expression to annoyed
-		set_atlas(vanta, "talk_sinister");
+		//set_atlas(vanta, "talk_sinister");
 		fsay("Don't play the fool, \nignorant child!");
 		wait(0.25);
 	}
-	set_atlas(vanta, "talk_squint");
+	//set_atlas(vanta, "talk_squint");
 	say("Everyone in the Void knows \nof me.");
 	say("For it is I...");
 	//Vanta approaches player, change sprite animation
 	move(vanta, vec(4.5, 3.75), 1);
-	set_atlas(vanta, "talk_sinister");
+	//set_atlas(vanta, "talk_sinister");
 	fsay("THE GREAT");
 	wait(1);
 	move(vanta, vec(4.5, 4), 0.75);
@@ -190,14 +265,17 @@ void vanta_black()
 	//more thunder+lightning and battle commence
 	wait(2);
 	say("By the way, I'm cosplaying \nas Spoopy-senpai");
+	say("SPOOPY-SENPAI, PLEASE \nNOTICE ME!");
 	
-	narrative::hide();
+	narrative::end();
 	
 	player::lock(false);
+	
+	focus::move(get_position(get_player()), 1);
+	focus::player();
 	/*
 	also add expressions in narrative box
 	
 	*/
 	
 }
-
