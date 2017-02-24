@@ -1,7 +1,7 @@
 <scene name="outside">
     <boundary w="50" h="24"/>
     <map>
-        <texture>dungeon</texture>
+        <texture>spoop_tilemap</texture>
         <layer id="0">
             <ground x="16" y="0" w="5" h="8"/>
             <ground x="0" y="8" w="50" h="3"/>

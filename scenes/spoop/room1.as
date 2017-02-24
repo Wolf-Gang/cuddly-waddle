@@ -5,10 +5,11 @@ entity food1;
 
 [start]
 void start() {
+  
   set_position(get_player(), vec(0.5, 3));
   group::enable("food", false);
   set_z(get_player(), 0);
-  door = add_entity("dungeon", "door");
+  door = add_entity("spoop_tilemap", "door");
   set_position(door, vec(6.76, 5));
 }
 
@@ -22,9 +23,9 @@ void door_collision() {
 
 [start]
 void food_drop() {
-  if(!has_flag("food")) {
+  if(!has_flag("wall_broken")) {
     wait(10);
-    food1 = add_entity("dungeon", "food");
+    food1 = add_entity("spoop_tilemap", "food");
     set_position(food1, vec(1, 0.05));
     set_visible(food1, true);
     set_depth(food1, 0);
@@ -38,9 +39,9 @@ void food_drop() {
 [start]
 void wall() {
   if(!has_flag("wall_broken")) {
-    crack = add_entity("dungeon", "wall_crack");
+    crack = add_entity("spoop_tilemap", "wall_crack");
   } else {
-    crack = add_entity("dungeon", "wall_crack_2");
+    crack = add_entity("spoop_tilemap", "wall_crack_2");
   }
   set_position(crack, vec(3.5, 2));
   set_depth(crack, 255);
@@ -48,7 +49,7 @@ void wall() {
 
 [group food]
 void get_food() {
-  if(has_flag("food") and not has_flag("wall_broken")) {
+  if(has_flag("food") && !has_flag("wall_broken")) {
     //say("You got a food!");
     say("rumble rumble");
     set_flag("wall_broken");
@@ -61,7 +62,7 @@ void get_food() {
 
 [group wall_crack]
 void wall_crack() {
-  if(not has_flag("wall_broken")) {
+  if(!has_flag("wall_broken")) {
     say("A totally unsuspicious crack\nin the wall.");
     say("Nothing to see here.");
     narrative::hide();
@@ -74,12 +75,8 @@ void wall_crack() {
 
 [group testing]
 void test_room() {
-  load_scene("test");
-}
-
-[group extra]
-void extra_room() 
-{
-	load_scene("Vanta/Dark_Room");
+  if(is_triggered(control::menu)) {
+    load_scene("test");
+  }
 }
 

@@ -12,9 +12,9 @@ void start() {
 
 [start]
 void tension() {
-  spoopy = add_entity("spoopy", "back_up_talk");
+  spoopy = make_spoop(vec(18.5, 6.8), "back_up_talk");
   set_depth(spoopy, 0);
-  set_position(spoopy, vec(18.5, 6.8));
+  
   alpa = add_entity("vanta");
   set_depth(alpa, 1000);
   set_position(alpa, vec(18.5, 3.5));
@@ -150,32 +150,38 @@ void alpa_v_spoop() {
   narrative::hide();
   
   set_depth(magic[0], 255);
-  move(magic[0], get_position(spoopy) + vec(0, -.3), .75);
+  move(magic[0], get_position(spoopy) + vec(0, -.3), .5);
   
   narrative::set_speaker(spoopy);
-  wait(1);
+  wait(.5);
   
   say("Heh heh heh.");
   say("You really thought you could\ndefeat me with such an assault?");
   say("How incredibly hilarious.");
-  say("Unfortuantely for you, it is,\nshall we say, insufficient.");
+  say("Unfortuantely for you, it falls\na bit short of the mark.");
   narrative::hide();
-  
-  set_position(magic[1], get_position(spoopy) + vec(-2, .5));
-  set_position(magic[2], get_position(spoopy) + vec(2, .5));
-  
-  set_visible(magic[1], true);
-  wait(.25);
-  set_visible(magic[2], true);
   
   {
    vec target = get_position(alpa) + vec(0, -.5);
+   speed s_shot = speed(get_position(spoopy).distance(get_position(alpa))/.15);
    
-   move(magic[0], target, .25);
+   move(magic[0], target, s_shot);
+   
+   wait(.5);
+   
+   set_position(magic[1], get_position(spoopy) + vec(-2, .5));
+   wait(.1);
+   set_position(magic[2], get_position(spoopy) + vec(2, .5));
+   
+   set_visible(magic[1], true);
+   wait(.25);
+   set_visible(magic[2], true);
+   
+   wait(.5);
    
    for(int i = 1; i < 3; i++) {
      set_depth(magic[i], 0);
-     move(magic[i], target, .25);
+     move(magic[i], target, s_shot);
    }
    
    say("Now, you will die.");
@@ -184,8 +190,8 @@ void alpa_v_spoop() {
    for(int i =0; i < 5; i++) {
      set_position(magic[1], get_position(spoopy) + vec(-2, .5));
      set_position(magic[2], get_position(spoopy) + vec(2, .5));
-     move(magic[1], target, .25);
-     move(magic[2], target, .25);
+     move(magic[1], target, s_shot);
+     move(magic[2], target, s_shot);
    }
   }
   
@@ -224,12 +230,16 @@ void alpa_v_spoop() {
 
 [group to_spoop]
 void to_spoop() {
-  set_position(get_player(), vec(23, 9));
+  if(is_triggered(control::menu)) {
+    set_position(get_player(), vec(23, 9));
+  }
 }
 
 [group skip_thing]
 void skipp() {
-  set_position(get_player(), get_position(spoopy));
+  if(is_triggered(control::menu)) {
+    set_position(get_player(), get_position(spoopy));
+  }
 }
 
 [group fin]

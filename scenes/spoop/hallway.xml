@@ -1,7 +1,7 @@
 <scene name="Hallway">
     <boundary w="9" h="14"/>
     <map>
-        <texture>dungeon</texture>
+        <texture>spoop_tilemap</texture>
         <layer id="-1">
             <ground x="1" y="3" w="7" h="2"/>
             <ground x="0" y="5" w="9"/>

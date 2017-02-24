@@ -10,8 +10,8 @@ void throne_room() {
   if(select("Yes", "No") == option::first) {
     load_scene("Vanta/dark_room");
   } else {
-    
-    move(get_player(), (get_position(get_player()) - vec(5.5, 0.5)) * .1, .25);
+    move(get_player(), get_position(get_player()) + (get_position(get_player()) - vec(5.5, 0.5)).normalize() * 0.3, .25);
   }
+  narrative::end();
 }
 
