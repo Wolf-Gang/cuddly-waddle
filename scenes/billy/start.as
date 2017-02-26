@@ -93,10 +93,10 @@ void thing2()
 	move(billy, direction::up, 1, speed(3));
 	wait(0.6);
 	say("This way.");
+	narrative::end();
 	
 	move(billy, direction::up, 2, speed(3));
 	remove_entity(billy);
-	narrative::end();
 	
 	focus::move(get_position(get_player()), 1);
 	focus::player();
