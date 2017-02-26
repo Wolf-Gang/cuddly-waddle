@@ -1,4 +1,5 @@
 
+#include "../backend/pair.as"
 #include "../backend/float.as"
 
 entity vanta;
@@ -70,7 +71,6 @@ void do_lightning() {
   
   float t;
   float r;
-  float s;
   
   do {
     
@@ -115,31 +115,25 @@ void create_column(vec pPosition)
 void create_columns()
 {
 	create_column(vec(2.5, 6.75));
-    create_column(vec(6.5, 6.75));
+  create_column(vec(6.5, 6.75));
 	create_column(vec(2.5, 8.75));
 	create_column(vec(6.5, 8.75));
 }
 
-entity create_darkness(vec pPosition)
+pair create_darkness(vec pPosition, float pSeparation)
 {
-	entity darkness = add_entity("dark_light_up", "dark");
-	set_position(darkness, pPosition);
-	set_depth(darkness, 0);
+	pair darkness (add_entity("dark_light_up", "dark"), pSeparation);
+	darkness.set_position(pPosition);
+	darkness.set_depth(0);
 	return darkness;
 }
 
-entity create_torch(vec pPosition)
+pair create_torch_pair(vec pPosition, float pSeparation)
 {
-	entity torch = add_entity("torch", "torch");
-	set_position(torch, pPosition);
-	return torch;
+	pair torches (add_entity("torch", "torch"), pSeparation);
+	torches.set_position(pPosition);
+	return torches;
 }
-
-class pair
-{
-	entity left;
-	entity right;
-};
 
 array<pair> torches(3);
 array<pair> darks(3);
@@ -149,45 +143,33 @@ void create_torches()
 {
 	for(int k = 0; k < 3; k++)
 	{
-		torches[k].left = create_torch(vec(3.5, (k*2) + 11));
-		torches[k].right = create_torch(vec(5.5, (k*2) + 11));
-		darks[k].left = create_darkness(vec(3.5, (k*2) + 11));
-		darks[k].right = create_darkness(vec(5.5, (k*2) + 11));
+		torches[k] = create_torch_pair(vec(3.5, (k*2) + 11), 2);
+		darks[k] = create_darkness(vec(3.5, (k*2) + 11), 2);
 	}
 	
-	entity left_torch   = create_torch(vec(2.5, 3.5));
-	entity right_torch = create_torch(vec(6.5, 3.5)); 
-	entity left_dark = create_darkness(vec(2.5, 3.5));
-	entity right_dark = create_darkness(vec(6.5, 3.5)); 
+	pair throne_torches = create_torch_pair(vec(2.5, 3.5), 4);
+	entity throne_darks = create_darkness(vec(2.5, 3.5), 4);
 	
-	set_atlas(left_torch, "light");
-	set_atlas(right_torch, "light");
-	set_atlas(left_dark, "flicker");
-	set_atlas(right_dark, "flicker");
+	throne_torches.set_atlas("light");
+	throne_darks.set_atlas("flicker");
 	
-	start_animation(left_torch);
-	start_animation(right_torch);
-	start_animation(left_dark);
-	start_animation(right_dark);
+	throne_torches.start_animation();
+	thonre_darks.start_animation();
 	
-	set_depth_fixed(left_torch, false);
-	set_depth_fixed(right_torch, false);
+	set_depth_fixed(throne_torches.get_left(), false);
+	set_depth_fixed(throne_torche.get_right(), false);
 }
 
 void light_torch(int k)
 {
 	player::lock(true);
-	set_atlas(torches[k].left, "ignite");
-	set_atlas(torches[k].right, "ignite");
+	torches[k].set_atlas("ignite");
 	
-	set_atlas(darks[k].left, "light");
-	set_atlas(darks[k].right, "light");
+	darks[k].set_atlas("light");
 	
-	start_animation(torches[k].left);
-	start_animation(torches[k].right);
+	torches[k].start_animation();
 	
-	start_animation(darks[k].left);
-	start_animation(darks[k].right);
+	darks[k].start_animation();
 	
 	wait(0.80);
 	
@@ -196,17 +178,13 @@ void light_torch(int k)
 
 void animate_torch(int k)
 {
-	set_atlas(torches[k].left, "light");
-	set_atlas(torches[k].right, "light");
+	torches[k].set_atlas("light");
 	
-	set_atlas(darks[k].left, "flicker");
-	set_atlas(darks[k].right, "flicker");
-				
-	start_animation(torches[k].left);
-	start_animation(torches[k].right);
+	darks[k].set_atlas("flicker");
+  
+	torches[k].start_animation();
 	
-	start_animation(darks[k].left);
-	start_animation(darks[k].right);
+	darks[k].start_animation();
 }
 
 [group step2]
