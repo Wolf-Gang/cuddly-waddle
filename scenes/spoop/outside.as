@@ -241,9 +241,9 @@ void alpa_v_spoop() {
 
 [group to_spoop]
 void to_spoop() {
-  //if(is_triggered(control::menu)) {
+  if(is_triggered(control::menu)) {
     set_position(get_player(), vec(23, 9));
-  //}
+  }
 }
 
 [group skip_thing]
