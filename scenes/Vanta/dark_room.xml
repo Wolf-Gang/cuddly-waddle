@@ -13,7 +13,7 @@
     </collisionboxes>
     <boundary h="5" w="5"/>
     <map>
-        <texture>dungeon</texture>
+        <texture>Vanta_tilemap</texture>
         <layer id="0">
             <door_big x="2" y="0"/>
         </layer>
