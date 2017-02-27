@@ -27,7 +27,7 @@ void earthquake() {
     create_thread(function(args) {fx::shake(3, 1);});
     say("rumble rumble");
     set_flag("wall_broken");
-    set_atlas(wall_crack, "wall_crack_2");
+    set_atlas(crack, "wall_crack_2");
     narrative::end();
   }
 }

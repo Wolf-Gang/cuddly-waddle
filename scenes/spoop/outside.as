@@ -19,7 +19,8 @@ void tension() {
     spoop = make_spoopy(vec(18.5, 6.8), "back_up_talk");
     set_depth(spoop, 0);
     
-    alpa = add_entity("vanta");
+    alpa = add_entity("alpa", "magic");
+	start_animation(alpa);
     set_depth(alpa, 1000);
     set_position(alpa, vec(18.5, 3.5));
   }
@@ -154,6 +155,8 @@ void alpa_v_spoop() {
   
   narrative::hide();
   
+  start_animation(alpa);
+  
   set_depth(magic[0], 255);
   move(magic[0], get_position(spoop) + vec(0, -.3), .5);
   
@@ -201,6 +204,8 @@ void alpa_v_spoop() {
   }
   
   //death animation
+  set_atlas(alpa, "death");
+  wait(1);
   remove_entity(alpa);
   
   do_spin = false;
@@ -236,9 +241,9 @@ void alpa_v_spoop() {
 
 [group to_spoop]
 void to_spoop() {
-  if(is_triggered(control::menu)) {
+  //if(is_triggered(control::menu)) {
     set_position(get_player(), vec(23, 9));
-  }
+  //}
 }
 
 [group skip_thing]
