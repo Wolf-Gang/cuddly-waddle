@@ -122,16 +122,16 @@ void create_columns()
 
 pair create_darkness(vec pPosition, float pSeparation)
 {
-	pair darkness (add_entity("dark_light_up", "dark"), pSeparation);
-	darkness.set_position(pPosition);
-	darkness.set_depth(0);
+	pair darkness ("dark_light_up", pPosition,  pSeparation);
+	darkness.set_pair_atlas("dark");
+	darkness.set_pair_depth(0);
 	return darkness;
 }
 
 pair create_torch_pair(vec pPosition, float pSeparation)
 {
-	pair torches (add_entity("torch", "torch"), pSeparation);
-	torches.set_position(pPosition);
+	pair torches ("torch", pPosition, pSeparation);
+	torches.set_pair_atlas("torch");
 	return torches;
 }
 

@@ -19,11 +19,11 @@ class pair {
     this.separation = other.get_separation();
     
     this.angle = other.get_angle();
-    //this.angle = other.get_position();
+    this.set_position(other.get_position());
 	
   }
   
-  pair(string pRight_texture, string pLeft_texture, float pSeparation, vec &in pPosition, float pAngle = 0) {
+  pair(string pRight_texture, string pLeft_texture, vec &in pPosition, float pSeparation, float pAngle = 0) {
     
     right = add_entity(pRight_texture);
     left = add_entity(pLeft_texture);
@@ -35,7 +35,7 @@ class pair {
     set_pair_position(pPosition);
   }
   
-  pair(string pRight_texture, string pRight_atlas, string pLeft_texture, string pLeft_atlas, float pSeparation, vec &in pPosition, float pAngle = 0) {
+  pair(string pRight_texture, string pRight_atlas, string pLeft_texture, string pLeft_atlas, vec &in pPosition, float pSeparation, float pAngle = 0) {
     
     right = add_entity(pRight_texture, pRight_atlas);
     left = add_entity(pLeft_texture, pLeft_atlas);
@@ -47,7 +47,7 @@ class pair {
     set_pair_position(pPosition);
   }
   
-  pair(string pPair_texture, float pSeparation, float pAngle = 0) {
+  pair(string pPair_texture, vec &in pPosition, float pSeparation, float pAngle = 0) {
     
     left = add_entity(pPair_texture);
     right = add_entity(pPair_texture);
@@ -55,16 +55,8 @@ class pair {
     separation = pSeparation;
     
     angle = pAngle;
-  }
-  
-  pair(string pPair_texture, string pPair_atlas, float pSeparation, vec &in pPosition, float pAngle = 0) {
     
-    left = add_entity(pPair_texture, pPair_atlas);
-    right = add_entity(pPair_texture, pPair_atlas);
-    
-    separation = pSeparation;
-    
-    angle = pAngle;
+    set_pair_position(pPosition);
   }
   
   void set_left(entity e) {
@@ -146,7 +138,6 @@ class pair {
     set_depth(left, depth);
   }
   
-  /*
   pair@ opAssign(const pair &in other) {
     
     this.right = other.get_right();
@@ -154,12 +145,14 @@ class pair {
     
     this.separation = other.get_separation();
     
-	this.angle = other.get_angle();
+    this.angle = other.get_angle();
 	
-    //this.angle = other.get_pair_position();
+    set_pair_position(other.get_pair_position());
+    return this;
   }
-  */
+  
   private void update_positions() {
+  
     set_position(left, get_position(left));
   }
   
