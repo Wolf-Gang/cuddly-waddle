@@ -26,7 +26,7 @@ void create_vanta()
 	start_animation(vanta);
 	
 	do{
-		float_entity(vanta, 0.3, 1);
+		float_entity(vanta, 0.3, 0.25, 16);
 	}while(yield());
 }
 
