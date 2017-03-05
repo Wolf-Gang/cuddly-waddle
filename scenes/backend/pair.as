@@ -107,11 +107,10 @@ class pair {
     
   }
   
-  void set_pair_position(vec pPos_left) {
-    
+  void set_pair_position(vec pPos_left)
+  {
     set_position(left, pPos_left);
-    
-    set_position(right, vec(pPos_left.x * cos(angle), pPos_left.y * sin(angle)));
+    update_positions();
   }
   
   vec get_pair_position() const{
@@ -151,9 +150,11 @@ class pair {
     return this;
   }
   
-  private void update_positions() {
-  
-    set_position(left, get_position(left));
+  private void update_positions()
+  {
+    vec right_position = get_position(left);
+	right_position.x += separation;
+    set_position(right, right_position.rotate(angle));
   }
   
 }
