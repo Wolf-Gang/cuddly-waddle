@@ -9,7 +9,7 @@ entity billy;
 void start() {
   set_position(get_player(), vec(5.5, 100));
   
-  narrative::set_skip(false);
+  //narrative::set_skip(false);
   say("So, you wish to challenge me?");
   append("\nVery well.");
   say("But I will have to test you\nfirst.");
@@ -53,7 +53,7 @@ void make_circle() {
 
 [group circle]
 void the_end() {
-  narrative::set_skip(false);
+  //narrative::set_skip(false);
   set_position(get_player(), vec(5.5, 100));
   say("Well done.");
   say("I guess I have to keep my promise\nnow, don't I?");
@@ -66,7 +66,7 @@ void the_end() {
 [group spooper]
 void talk_spoop() {
   narrative::set_speaker(spoop);
-  narrative::set_skip(false);
+  //narrative::set_skip(false);
   narrative::set_speed(13);
   fsay("So you think you can best me?");
   switch(select("Yes", "No")) {
