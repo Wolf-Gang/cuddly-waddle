@@ -19,7 +19,7 @@ class pair {
     this.separation = other.get_separation();
     
     this.angle = other.get_angle();
-    this.set_position(other.get_position());
+    this.set_pair_position(other.get_pair_position());
 	
   }
   
@@ -114,7 +114,7 @@ class pair {
     set_position(right, vec(pPos_left.x * cos(angle), pPos_left.y * sin(angle)));
   }
   
-  vec get_pair_position() {
+  vec get_pair_position() const{
     
     return get_position(left);
     
