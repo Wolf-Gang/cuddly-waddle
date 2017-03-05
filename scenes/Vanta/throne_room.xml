@@ -21,21 +21,29 @@
         <trigger x="4" y="12" w="1" h="1" group="step1"/>
         <trigger x="4" y="14" w="1" h="1" group="step2"/>
         <trigger x="4" y="10" w="1" h="1" group="step0"/>
-        <trigger x="7" y="5" w="1" h="1" group="vanta"/>
         <trigger x="3" y="5" w="3" h="1" group="vanta"/>
         <trigger x="2" y="5" w="1" h="1" group="vanta"/>
         <trigger x="6" y="5" w="1" h="1" group="vanta"/>
         <wall x="2" y="3" w="1" h="1"/>
         <wall x="6" y="3" w="1" h="1"/>
-        <trigger x="1" y="5" w="1" h="1" group="vanta"/>
         <button x="4" y="3" w="1" h="1" group="vanta_talk"/>
         <trigger x="4" y="9" w="1" h="1" group="start_thunder"/>
+        <wall x="0" y="3" w="1" h="1"/>
+        <wall x="0" y="4" w="1" h="1"/>
+        <wall x="0" y="5" w="1" h="1"/>
+        <wall x="1" y="5" w="1" h="1"/>
+        <wall x="7" y="5" w="1" h="1"/>
+        <wall x="8" y="5" w="1" h="1"/>
+        <wall x="8" y="3" w="1" h="1"/>
+        <wall x="8" y="4" w="1" h="1"/>
+        <wall x="7" y="6" w="1" h="4"/>
+        <wall x="1" y="6" w="1" h="4"/>
     </collisionboxes>
     <boundary h="21" w="9"/>
     <map>
         <texture>Vanta_tilemap</texture>
         <layer id="0">
-            <wall x="0" y="-1" w="9" h="3"/>
+            <wall x="0" y="0" w="9" h="2"/>
             <wall_bottom x="0" y="2" w="9"/>
             <ground x="0" y="3" w="3" h="2"/>
             <path_end x="3" y="3" r="1"/>
@@ -76,12 +84,32 @@
             <ground x="6" y="5"/>
             <ground x="2" y="7"/>
             <ground x="6" y="7"/>
+            <drop x="1" y="10"/>
             <path x="4" y="10" r="1"/>
+            <drop x="7" y="10"/>
             <ground x="5" y="11" r="1"/>
             <path_end x="4" y="17"/>
         </layer>
         <layer id="2">
+            <waterfall_top x="0" y="0"/>
+            <waterfall_top x="8" y="0"/>
+            <waterfall x="0" y="1"/>
+            <waterfall x="8" y="1"/>
+            <waterfall_bottom x="0" y="2"/>
+            <waterfall_bottom x="8" y="2"/>
+            <stream x="0" y="3" h="2"/>
+            <stream x="8" y="3" h="2"/>
+            <stream x="1" y="6" h="3"/>
+            <stream x="7" y="6" h="3"/>
+            <waterfall_mouth x="1" y="9"/>
+            <waterfall_mouth x="7" y="9"/>
+            <waterfall_top x="1" y="10"/>
             <darkness x="6" y="10"/>
+            <waterfall_top x="7" y="10"/>
+        </layer>
+        <layer id="3">
+            <drop x="2" y="10"/>
+            <drop x="6" y="10"/>
         </layer>
     </map>
 </scene>

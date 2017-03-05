@@ -252,4 +252,40 @@
     y="256"
     w="32"
     h="32"/>
+	<stream_corner
+	x="256"
+	y="32"
+	w="32"
+	h="32"
+	frames="2" interval="300" loop="true"/>
+	<stream
+	x="256"
+	y="64"
+	w="32"
+	h="32"
+	frames="2" interval="300" loop="true"/>
+	<waterfall_mouth
+	x="256"
+	y="96"
+	w="32"
+	h="32"
+	frames="4" interval="150" loop="true"/>
+	<waterfall_top
+	x="256"
+	y="128"
+	w="32"
+	h="32"
+	frames="4" interval="150" loop="true"/>
+	<waterfall
+	x="256"
+	y="160"
+	w="32"
+	h="32"
+	frames="4" interval="150" loop="true"/>
+	<waterfall_bottom
+	x="256"
+	y="192"
+	w="32"
+	h="32"
+	frames="4" interval="150" loop="true"/>
 </atlas>

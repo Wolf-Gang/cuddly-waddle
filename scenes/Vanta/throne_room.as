@@ -1,6 +1,7 @@
 
 #include "../backend/pair.as"
 #include "../backend/float.as"
+#include "../backend/shadows.as"
 
 entity vanta;
 

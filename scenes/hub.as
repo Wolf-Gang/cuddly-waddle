@@ -1,4 +1,5 @@
 #include "spoop/entities/spoopy.as"
+#include "backend/shadows.as"
 
 entity spoop;
 entity vanta;
@@ -21,6 +22,7 @@ void start() {
   set_position(get_player(), vec(5.5, 2.7));
   
   spoop = make_spoopy(vec(5.5, 7.7), "back_up");
+  shadows::add(spoop);
   
   vanta = add_entity("vanta");
   billy = add_entity("someguy");
