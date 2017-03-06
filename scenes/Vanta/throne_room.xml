@@ -102,7 +102,6 @@
             <ground_destroyed_edge x="6" y="18" r="2"/>
         </layer>
         <layer id="2">
-            < x="0" y="0" r="152959856"/>
             <banner x="1" y="0"/>
             <banner x="7" y="0"/>
             <waterfall_top x="8" y="0"/>
