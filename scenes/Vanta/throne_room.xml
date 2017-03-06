@@ -6,7 +6,6 @@
         <wall x="7" y="10" w="1" h="1"/>
         <wall x="8" y="6" w="1" h="4"/>
         <wall x="9" y="3" w="1" h="3"/>
-        <wall x="0" y="2" w="9" h="1"/>
         <wall x="-1" y="3" w="1" h="2"/>
         <wall x="0" y="6" w="1" h="5"/>
         <wall x="1" y="10" w="2" h="1"/>
@@ -38,6 +37,7 @@
         <wall x="8" y="4" w="1" h="1"/>
         <wall x="7" y="6" w="1" h="4"/>
         <wall x="1" y="6" w="1" h="4"/>
+        <wall x="1" y="2" w="7" h="1"/>
     </collisionboxes>
     <boundary h="21" w="9"/>
     <map>
@@ -46,32 +46,26 @@
             <wall x="0" y="0" w="9" h="2"/>
             <wall_bottom x="0" y="2" w="9"/>
             <ground x="0" y="3" w="3" h="2"/>
-            <path_end x="3" y="3" r="1"/>
-            <ground x="4" y="3" r="3"/>
-            <path_end x="5" y="3" r="3"/>
+            <ground x="3" y="3" w="3"/>
             <ground x="6" y="3" w="3" h="2"/>
-            <stairs x="3" y="4" w="3"/>
-            <ground x="0" y="5" w="4"/>
-            <path_end x="4" y="5" r="2"/>
-            <ground x="5" y="5" w="4"/>
+            <ground x="3" y="4"/>
+            <stairs x="4" y="4"/>
+            <ground x="5" y="4"/>
+            <ground x="0" y="5" w="9"/>
             <groundblend x="0" y="6"/>
-            <ground x="1" y="6" w="3"/>
-            <path x="4" y="6" h="4" r="1"/>
+            <ground x="1" y="6" w="4"/>
             <ground x="5" y="6" w="3" h="4"/>
             <groundblend x="8" y="6"/>
             <ground x="1" y="7"/>
             <ground x="2" y="7" r="1"/>
-            <ground x="3" y="7"/>
+            <ground x="3" y="7" w="2"/>
             <ground x="1" y="8" w="3" h="2"/>
+            <ground x="4" y="8" h="9"/>
             <groundblend x="1" y="10" w="2"/>
-            <ground x="3" y="10" h="4"/>
-            <ground x="5" y="10"/>
+            <ground x="3" y="10" h="7"/>
+            <ground x="5" y="10" h="7"/>
             <groundblend x="6" y="10" w="2"/>
-            <path x="4" y="11" h="6" r="1"/>
-            <ground x="5" y="12" h="5"/>
-            <ground x="3" y="14" r="2"/>
             <wall x="2" y="15"/>
-            <ground x="3" y="15" h="2"/>
             <wall x="6" y="15"/>
             <wall_bottom x="2" y="16"/>
             <wall_bottom x="6" y="16"/>
@@ -79,26 +73,32 @@
             <drop x="2" y="19" w="5"/>
         </layer>
         <layer id="1">
-            <path x="4" y="3" r="2"/>
+            <stair_corner x="3" y="4" r="1"/>
+            <stair_corner x="5" y="4"/>
             <ground x="2" y="5"/>
             <ground x="6" y="5"/>
             <ground x="2" y="7"/>
             <ground x="6" y="7"/>
             <drop x="1" y="10"/>
-            <path x="4" y="10" r="1"/>
             <drop x="7" y="10"/>
-            <ground x="5" y="11" r="1"/>
-            <path_end x="4" y="17"/>
         </layer>
         <layer id="2">
             <waterfall_top x="0" y="0"/>
+            <banner x="1" y="0"/>
+            <banner x="7" y="0"/>
             <waterfall_top x="8" y="0"/>
             <waterfall x="0" y="1"/>
+            <banner x="1" y="1" w="2"/>
             <waterfall x="8" y="1"/>
             <waterfall_bottom x="0" y="2"/>
+            <banner x="2" y="2"/>
             <waterfall_bottom x="8" y="2"/>
             <stream x="0" y="3" h="2"/>
             <stream x="8" y="3" h="2"/>
+            <stream_corner x="0" y="5" r="3"/>
+            <stream_corner x="1" y="5" r="1"/>
+            <stream_corner x="7" y="5"/>
+            <stream_corner x="8" y="5" r="2"/>
             <stream x="1" y="6" h="3"/>
             <stream x="7" y="6" h="3"/>
             <waterfall_mouth x="1" y="9"/>

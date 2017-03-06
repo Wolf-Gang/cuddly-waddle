@@ -247,7 +247,7 @@
     y = "256"
     w="32"
     h="32"/>
-	<darkness
+	<stair_corner
     x="32"
     y="256"
     w="32"
@@ -257,35 +257,40 @@
 	y="32"
 	w="32"
 	h="32"
-	frames="2" interval="300" loop="true"/>
+	frames="2" interval="400" loop="true"/>
 	<stream
 	x="256"
 	y="64"
 	w="32"
 	h="32"
-	frames="2" interval="300" loop="true"/>
+	frames="2" interval="400" loop="true"/>
 	<waterfall_mouth
 	x="256"
 	y="96"
 	w="32"
 	h="32"
-	frames="4" interval="150" loop="true"/>
+	frames="4" interval="200" loop="true"/>
 	<waterfall_top
 	x="256"
 	y="128"
 	w="32"
 	h="32"
-	frames="4" interval="150" loop="true"/>
+	frames="4" interval="200" loop="true"/>
 	<waterfall
 	x="256"
 	y="160"
 	w="32"
 	h="32"
-	frames="4" interval="150" loop="true"/>
+	frames="4" interval="200" loop="true"/>
 	<waterfall_bottom
 	x="256"
 	y="192"
 	w="32"
 	h="32"
-	frames="4" interval="150" loop="true"/>
+	frames="4" interval="200" loop="true"/>
+	<banner
+	x="320"
+	y="32"
+	w="32"
+	h="64"/>
 </atlas>
