@@ -49,17 +49,17 @@
     y="32"
     w="32"
     h="32"/>
-	<wall_top
+	<ground_destroyed
 		x="32" 
 		y="32" 
 		w="32" 
 		h="32"/>
-	<wall_top_c
+	<ground_destroyed2
 		x="64" 
 		y="32" 
 		w="32" 
 		h="32"/>
-	<wall_top_ce
+	<ground_destroyed_edge
 		x="96" 
 		y="32" 
 		w="32" 
@@ -170,7 +170,7 @@
 		y="96"
 		w="32" 
 		h="32"/>
-	<decay_path_end
+	<ground_crumble
 		x="160"
 		y="0"
 		w="32" 
@@ -201,7 +201,7 @@
     y="192"
     w="32"
     h="32"/>
-  <wall_markings
+  <ground_soil
     x="128"
     y="0"
     w="32"
