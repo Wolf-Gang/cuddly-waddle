@@ -4,3 +4,4 @@ textures/*.pal
 data
 .gitignore~
 *.ase
+scenes/backend/float.as

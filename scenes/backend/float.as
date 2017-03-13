@@ -8,7 +8,7 @@ void float_entity(entity floater, float height, float period, float cycles = 1) 
     
     do {
       
-      set_z(floater, height * sin((t * 2 * math::pi) / period));
+      set_z(floater, height * sin((t * 2 * 3.14) / period));
       
       t += get_delta();
       
@@ -18,7 +18,7 @@ void float_entity(entity floater, float height, float period, float cycles = 1) 
   
     for(t; t < cycles * period; t += get_delta()) {
       
-      set_z(floater, height * sin(t * 2 * math::pi * period));
+      set_z(floater, height * sin(t * 2 * 3.14 * period));
       
       yield();
     }
