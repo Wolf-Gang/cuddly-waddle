@@ -23,8 +23,6 @@
         <trigger x="3" y="5" w="3" h="1" group="vanta"/>
         <trigger x="2" y="5" w="1" h="1" group="vanta"/>
         <trigger x="6" y="5" w="1" h="1" group="vanta"/>
-        <wall x="2" y="3" w="1" h="1"/>
-        <wall x="6" y="3" w="1" h="1"/>
         <button x="4" y="3" w="1" h="1" group="vanta_talk"/>
         <trigger x="4" y="9" w="1" h="1" group="start_thunder"/>
         <wall x="0" y="3" w="1" h="1"/>
@@ -38,16 +36,26 @@
         <wall x="7" y="6" w="1" h="4"/>
         <wall x="1" y="6" w="1" h="4"/>
         <wall x="1" y="2" w="7" h="1"/>
+        <wall x="2" y="3" w="1" h="1"/>
+        <wall x="6" y="3" w="1" h="1"/>
     </collisionboxes>
     <boundary h="21" w="9"/>
     <map>
         <texture>Vanta_tilemap</texture>
+        <layer id="-1">
+            <ground_crumbles x="6" y="3"/>
+            <ground_crumbles x="6" y="18"/>
+        </layer>
         <layer id="0">
+            <stream x="5" y="-5"/>
             <wall x="0" y="0" w="9" h="2"/>
             <wall_bottom x="0" y="2" w="9"/>
             <ground x="0" y="3"/>
             <ground_destroyed x="1" y="3"/>
-            <ground x="2" y="3" w="7"/>
+            <soil x="2" y="3" w="2"/>
+            <ground x="4" y="3" w="2"/>
+            <soil x="6" y="3" r="2"/>
+            <ground x="7" y="3" w="2"/>
             <ground x="0" y="4" w="4"/>
             <stairs x="4" y="4"/>
             <ground x="5" y="4"/>
@@ -59,62 +67,71 @@
             <ground x="3" y="5" w="2"/>
             <ground_destroyed x="5" y="5"/>
             <ground x="6" y="5" w="2"/>
-            <ground x="1" y="6" w="4"/>
-            <ground x="5" y="6" w="3" h="4"/>
+            <ground x="1" y="6" w="7"/>
             <ground x="1" y="7"/>
             <ground x="2" y="7" r="1"/>
-            <ground x="3" y="7" w="2"/>
+            <ground x="3" y="7" w="5"/>
             <ground x="1" y="8" w="3" h="2"/>
             <ground x="4" y="8" h="9"/>
+            <ground x="5" y="8" w="3"/>
+            <ground x="5" y="9" h="8"/>
+            <soil x="6" y="9"/>
+            <ground x="7" y="9"/>
+            <stream x="11" y="9"/>
             <groundblend x="1" y="10" w="2"/>
-            <ground x="3" y="10" h="7"/>
-            <ground x="5" y="10" h="7"/>
+            <ground x="3" y="10" h="5"/>
             <groundblend x="6" y="10" w="2"/>
             <wall x="2" y="15"/>
+            <ground x="3" y="15" r="1"/>
             <wall x="6" y="15"/>
             <wall_bottom x="2" y="16"/>
+            <ground x="3" y="16"/>
             <wall_bottom x="6" y="16"/>
             <ground_destroyed x="2" y="17"/>
             <ground x="3" y="17" w="3"/>
             <ground_soil x="6" y="17"/>
-            <ground x="2" y="18" w="5"/>
+            <ground x="2" y="18" w="4"/>
+            <ground_soil x="6" y="18" r="2"/>
             <drop x="2" y="19" w="5"/>
         </layer>
         <layer id="1">
+            <ground_crumbles x="2" y="3"/>
             <path_end x="3" y="3" r="1"/>
             <path x="4" y="3" r="1"/>
             <path_end x="5" y="3" r="3"/>
-            <ground_destroyed_edge x="6" y="3" r="2"/>
+            <ground_crumbles x="6" y="3"/>
             <ground_soil x="7" y="3" r="2"/>
-            <stair_corner x="3" y="4" r="1"/>
-            <stair_corner x="5" y="4"/>
+            <ground x="3" y="4" w="3"/>
             <ground_destroyed2 x="6" y="4"/>
+            <ground_crumbles x="7" y="4"/>
             <ground x="2" y="5"/>
             <path_end x="4" y="5" r="2"/>
             <ground x="6" y="5"/>
             <path x="4" y="6" h="11"/>
             <ground x="2" y="7"/>
-            <ground x="6" y="7"/>
+            <ground x="6" y="7" h="2"/>
+            <soil x="2" y="9"/>
             <drop x="1" y="10"/>
+            <ground_destroyed_edge x="3" y="10" h="2"/>
             <drop x="7" y="10"/>
+            <ground_destroyed x="5" y="13"/>
             <path_end x="4" y="17"/>
             <ground_crumble x="6" y="17"/>
-            <ground_destroyed_edge x="6" y="18" r="2"/>
+            <ground_crumbles x="6" y="18"/>
         </layer>
         <layer id="2">
-            <banner x="1" y="0"/>
+            <waterfall_top x="0" y="0"/>
+            <banner_torn x="1" y="0"/>
             <banner x="7" y="0"/>
             <waterfall_top x="8" y="0"/>
             <waterfall x="0" y="1"/>
-            <banner x="1" y="1" w="2"/>
             <waterfall x="8" y="1"/>
             <waterfall_bottom x="0" y="2"/>
-            <banner x="2" y="2"/>
             <waterfall_bottom x="8" y="2"/>
             <stream x="0" y="3" h="2"/>
+            <ground_crumbles x="7" y="3" r="2"/>
             <stream x="8" y="3" h="2"/>
             <ground_destroyed2 x="6" y="4"/>
-            <ground_crumble x="7" y="4"/>
             <stream_corner x="0" y="5" r="3"/>
             <stream_corner x="1" y="5" r="1"/>
             <ground_destroyed2 x="3" y="5"/>
@@ -123,10 +140,13 @@
             <stream x="1" y="6" h="3"/>
             <stream x="7" y="6" h="3"/>
             <waterfall_mouth x="1" y="9"/>
+            <ground_crumble x="2" y="9" r="2"/>
+            <ground_crumbles x="6" y="9" r="1"/>
             <waterfall_mouth x="7" y="9"/>
             <waterfall_top x="1" y="10"/>
             <darkness x="6" y="10"/>
             <waterfall_top x="7" y="10"/>
+            <ground_crumbles x="6" y="17" r="1"/>
         </layer>
         <layer id="3">
             <drop x="2" y="10"/>
