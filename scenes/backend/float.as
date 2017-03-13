@@ -13,7 +13,7 @@ void float_entity(entity floater, float height, float period, float cycles = 1) 
       set_z(floater, get_z(floater) + height * cos((t * 2 * math::pi) / period) * get_delta());
       
       t += get_delta();
-      
+    
       if(t >= 10) 
         t -= 10;
       

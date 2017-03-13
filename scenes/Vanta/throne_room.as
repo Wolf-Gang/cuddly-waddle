@@ -9,9 +9,9 @@ entity vanta;
 void start()
 {
 	//temporary
-	//set_position(get_player(), vec(4.5, 10));
+	set_position(get_player(), vec(4.5, 10));
 	set_direction(get_player(), direction::up);
-	set_position(get_player(), vec(4.5, 19));
+	//set_position(get_player(), vec(4.5, 19));
 	
 	entity tDarkness = add_entity("dark_texture", "darkness");
 	set_position(tDarkness, vec(4.5, 21));
@@ -108,7 +108,7 @@ void do_lightning() {
 
 void create_column(vec pPosition)
 {
-	entity column1 = add_entity("dungeon","pillar");
+	entity column1 = add_entity("Vanta_tilemap","pillar");
 	set_position(column1, pPosition);
 }
 
@@ -116,8 +116,10 @@ void create_column(vec pPosition)
 void create_columns()
 {
 	create_column(vec(2.5, 6.75));
-  create_column(vec(6.5, 6.75));
-	create_column(vec(2.5, 8.75));
+    create_column(vec(6.5, 6.75));
+	set_position(add_entity("Vanta_tilemap", "pillar_broken"), vec(2.5, 8.75));
+	set_position(add_entity("Vanta_tilemap", "rubble"), vec(3, 9));
+	
 	create_column(vec(6.5, 8.75));
 }
 
