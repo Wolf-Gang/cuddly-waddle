@@ -49,7 +49,7 @@ void pair_things() {
     theta += omega * get_delta();
     
     if(theta >= 360 * 12)
-      theta -= 360;
+      theta -= 360 * 12;
     
   } while(yield());
   
