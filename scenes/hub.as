@@ -7,17 +7,23 @@ entity billy;
 
 [start]
 void start() {
-  set_position(get_player(), vec(5.5, 100));
   
-  //narrative::set_skip(false);
-  say("So, you wish to challenge me?");
-  append("\nVery well.");
-  say("But I will have to test you\nfirst.");
-  say("If you can defeat my minions,\nI will face you.");
-  say("Until you have proven yourself,\ndo not return.");
-  narrative::end();
-  fx::fade_out(.1);
-  player::lock(false);
+  if(has_flag("intro")) {
+  
+    set_position(get_player(), vec(5.5, 100));
+    
+    //narrative::set_skip(false);
+    say("So, you wish to challenge me?");
+    append("\nVery well.");
+    say("But I will have to test you\nfirst.");
+    say("If you can defeat my minions,\nI will face you.");
+    say("Until you have proven yourself,\ndo not return.");
+    narrative::end();
+    
+    fx::fade_out(.1);
+    player::lock(false);
+    
+  }
   
   set_position(get_player(), vec(5.5, 2.7));
   
@@ -33,8 +39,14 @@ void start() {
   set_atlas(vanta, "default:left");
   set_atlas(billy, "default:right");
   
-  wait(2);
-  fx::fade_in(3);
+  if(has_flag("intro")) {
+  
+    wait(2);
+    fx::fade_in(3);
+    set_flag("intro");
+    
+  }
+  
 }
 
 [start]
@@ -43,7 +55,9 @@ void make_circle() {
   entity circle;
   if(has_flag("spoopy") && has_flag("vanta") && has_flag("billy")) {
     
+    //have a glow around the circle
     group::enable("circle", true);
+    
   } else {
     circle = add_entity("hub", "circle");
   }

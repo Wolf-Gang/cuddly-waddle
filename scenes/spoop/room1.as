@@ -56,10 +56,3 @@ void wall_crack() {
   }
 }
 
-[group testing]
-void test_room() {
-  if(is_triggered(control::menu)) {
-    load_scene("test");
-  }
-}
-

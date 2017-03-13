@@ -1,6 +1,10 @@
 
 float g = -5;
 
+void set_gravity(float pG) {
+  g = pG;
+}
+
 void accelerate_z(entity pEntity, float pTime, float pAccel, float pVel = 0) {
   
   float z_vel = pVel;
@@ -16,21 +20,21 @@ void accelerate_z(entity pEntity, float pTime, float pAccel, float pVel = 0) {
   
 }
 
-void bounce(float pHeight, float pTime) {
+void bounce(entity bouncer, float pHeight, float pTime) {
   
   float velocity = (pHeight - (.5 * g * pow(pTime, 2)));
   
-  accelerate_z(get_player(), pTime, g, velocity);
+  accelerate_z(bouncer, pTime, g, velocity);
   
-  set_z(get_player(), 0);
+  //set_z(bouncer, 0);
 }
 
-void bounce(float pVel) {
+void bounce(entity bouncer, float pVel) {
   
   float t = (-2 * pVel) / g;
   
-  accelerate_z(get_player(), t, g, pVel);
+  accelerate_z(bouncer, t, g, pVel);
   
-  set_z(get_player(), 0);
+  //set_z(bouncer, 0);
 }
 

@@ -161,7 +161,7 @@ void alpa_v_spoop() {
   move(magic[0], get_position(spoop) + vec(0, -.3), .5);
   
   narrative::set_speaker(spoop);
-  wait(.5);
+  wait(.75);
   
   say("Heh heh heh.");
   say("You really thought you could\ndefeat me with such an assault?");

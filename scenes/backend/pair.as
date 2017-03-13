@@ -23,7 +23,7 @@ class pair {
 	
   }
   
-  pair(string pRight_texture, string pLeft_texture, vec &in pPosition, float pSeparation, float pAngle = 0) {
+  pair(string pLeft_texture, string pRight_texture, vec &in pPosition, float pSeparation, float pAngle = 0) {
     
     right = add_entity(pRight_texture);
     left = add_entity(pLeft_texture);
@@ -35,7 +35,7 @@ class pair {
     set_pair_position(pPosition);
   }
   
-  pair(string pRight_texture, string pRight_atlas, string pLeft_texture, string pLeft_atlas, vec &in pPosition, float pSeparation, float pAngle = 0) {
+  pair(string pLeft_texture, string pLeft_atlas, string pRight_texture, string pRight_atlas, vec &in pPosition, float pSeparation, float pAngle = 0) {
     
     right = add_entity(pRight_texture, pRight_atlas);
     left = add_entity(pLeft_texture, pLeft_atlas);
@@ -153,8 +153,9 @@ class pair {
   private void update_positions()
   {
     vec right_position = get_position(left);
-	right_position.x += separation;
-    set_position(right, right_position.rotate(angle));
+    right_position.x += separation;
+    set_position(right, right_position.rotate(get_position(left), angle));
   }
   
 }
+

@@ -29,6 +29,6 @@
         <wall x="8" y="5" w="1" h="2"/>
         <wall x="9" y="4" w="1" h="1"/>
         <wall x="8" y="2" w="1" h="2"/>
-        <trigger x="5" y="2" w="1" h="1" group="circle"/>
+        <button x="5" y="2" w="1" h="1" group="circle"/>
     </collisionboxes>
 </scene>
