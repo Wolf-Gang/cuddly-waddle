@@ -15,6 +15,24 @@ void shadow() {
   shadows::add(get_player());
 }
 
+[start]
+void do_narwhal() {
+  
+  entity narwhal = add_character("narry");
+  set_position(narwhal, vec(2, 2));
+  
+  float t = 0;
+  
+  float omega = .76;
+  
+  do {
+    
+    move(narwhal, get_position(narwhal).rotate(vec(2.5, 2.5), omega * 180 / math::pi * get_delta()), speed(omega * get_position(narwhal).distance(vec(2.5, 2.5))));
+    
+  } while(yield());
+  
+}
+
 [group boonce]
 void lets_bounce() {
   do {
