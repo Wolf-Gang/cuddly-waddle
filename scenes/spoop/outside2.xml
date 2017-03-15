@@ -2,14 +2,14 @@
     <map>
         <texture>spoop_tilemap</texture>
         <layer id="0">
-            <food x="0" y="-8"/>
-            <food x="0" y="-7" w="2"/>
-            <food x="1" y="-6"/>
             <food x="-11" y="-5" w="2"/>
-            <food x="-5" y="-5" w="2"/>
-            <food x="-2" y="-5" r="1"/>
-            <ground x="0" y="-5"/>
-            <food x="1" y="-5" w="2"/>
+            <ground x="0" y="0" w="10" h="9"/>
+            <ground x="-7" y="1"/>
+            <ground x="-6" y="3"/>
+            <ground x="33" y="9"/>
+        </layer>
+        <layer id="1">
+            <wall_markings x="0" y="0"/>
         </layer>
     </map>
     <collisionboxes/>

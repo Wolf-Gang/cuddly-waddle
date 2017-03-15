@@ -20,7 +20,7 @@ void tension() {
     set_depth(spoop, 0);
     
     alpa = add_entity("alpa", "magic");
-	start_animation(alpa);
+    start_animation(alpa);
     set_depth(alpa, 1000);
     set_position(alpa, vec(18.5, 3.5));
   }
