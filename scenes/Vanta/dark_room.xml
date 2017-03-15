@@ -9,7 +9,7 @@
         <wall x="2" y="-1" w="1" h="1"/>
         <wall x="3" y="0" w="1" h="1"/>
         <wall x="2" y="0" w="1" h="1"/>
-        <door x="2" y="1" w="1" h="1" group="door" name="throne_door" destination="Vanta/throne_room" scene="Vanta/throne_room" offsetx="0" offsety="0"/>
+        <door x="2" y="1" w="1" h="1" group="door" name="throne_door" destination="entrance" scene="Vanta/throne_room" offsetx="0" offsety="0"/>
     </collisionboxes>
     <boundary h="5" w="5"/>
     <map>
