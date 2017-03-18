@@ -13,16 +13,9 @@
         <wall x="1" y="16" w="1" h="3"/>
         <wall x="3" y="10" w="1" h="1"/>
         <wall x="5" y="10" w="1" h="1"/>
-        <wall x="3" y="12" w="1" h="1"/>
-        <wall x="5" y="12" w="1" h="1"/>
-        <wall x="5" y="14" w="1" h="1"/>
-        <wall x="3" y="14" w="1" h="1"/>
         <trigger x="4" y="12" w="1" h="1" group="step1"/>
         <trigger x="4" y="14" w="1" h="1" group="step2"/>
         <trigger x="4" y="10" w="1" h="1" group="step0"/>
-        <trigger x="3" y="5" w="3" h="1" group="vanta"/>
-        <trigger x="2" y="5" w="1" h="1" group="vanta"/>
-        <trigger x="6" y="5" w="1" h="1" group="vanta"/>
         <button x="4" y="3" w="1" h="1" group="vanta_talk"/>
         <trigger x="4" y="9" w="1" h="1" group="start_thunder"/>
         <wall x="0" y="3" w="1" h="1"/>
@@ -36,8 +29,18 @@
         <wall x="7" y="6" w="1" h="4"/>
         <wall x="1" y="6" w="1" h="4"/>
         <wall x="1" y="2" w="7" h="1"/>
-        <wall x="2" y="3" w="1" h="1"/>
-        <wall x="6" y="3" w="1" h="1"/>
+        <wall x="2" y="3" w="1" h="0.5"/>
+        <wall x="6" y="3" w="1" h="0.5"/>
+        <door x="4" y="19" w="1" h="1" name="entrance" destination="throne_room" scene="Vanta/dark_room" offsetx="0" offsety="-1"/>
+        <wall x="3" y="14" w="1" h="1"/>
+        <wall x="3" y="12" w="1" h="1"/>
+        <wall x="5" y="12" w="1" h="1"/>
+        <wall x="5" y="14" w="1" h="1"/>
+        <trigger x="3" y="5" w="3" h="1" group="vanta"/>
+        <wall x="2" y="8" w="1" h="0.5"/>
+        <wall x="6" y="8" w="1" h="0.5"/>
+        <wall x="6" y="6" w="1" h="0.5"/>
+        <wall x="2" y="6" w="1" h="0.5"/>
     </collisionboxes>
     <boundary h="21" w="9"/>
     <map>

@@ -9,9 +9,9 @@ entity vanta;
 void start()
 {
 	//temporary
-	set_position(get_player(), vec(4.5, 10));
+	//set_position(get_player(), vec(4.5, 10));
 	set_direction(get_player(), direction::up);
-	//set_position(get_player(), vec(4.5, 19));
+	set_position(get_player(), vec(4.5, 19));
 	
 	entity tDarkness = add_entity("dark_texture", "darkness");
 	set_position(tDarkness, vec(4.5, 21));
