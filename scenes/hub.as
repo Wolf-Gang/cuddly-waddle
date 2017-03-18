@@ -31,7 +31,10 @@ void start() {
   shadows::add(spoop);
   
   vanta = add_entity("vanta");
+  shadows::add(vanta);
+  
   billy = add_entity("someguy");
+  shadows::add(billy);
   
   set_position(vanta, vec(8.5, 4.7));
   set_position(billy, vec(2.5, 4.7));
