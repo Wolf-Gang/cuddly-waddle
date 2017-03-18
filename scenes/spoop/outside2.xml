@@ -2,10 +2,7 @@
     <map>
         <texture>spoop_tilemap</texture>
         <layer id="0">
-            <food x="-11" y="-5" w="2"/>
-            <ground x="0" y="0" w="10" h="9"/>
-            <ground x="-7" y="1"/>
-            <ground x="-6" y="3"/>
+            <ground x="-8" y="-7" w="18" h="16"/>
             <ground x="33" y="9"/>
         </layer>
         <layer id="1">

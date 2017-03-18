@@ -8,7 +8,7 @@ entity billy;
 [start]
 void start() {
   
-  if(has_flag("intro")) {
+  if(!has_flag("intro")) {
   
     set_position(get_player(), vec(5.5, 100));
     
@@ -27,7 +27,7 @@ void start() {
   
   set_position(get_player(), vec(5.5, 2.7));
   
-  spoop = make_spoopy(vec(5.5, 7.7), "back_up");
+  spoop = make_spoopy(vec(5.5, 7.7), "default:up");
   shadows::add(spoop);
   
   vanta = add_entity("vanta");
@@ -39,7 +39,7 @@ void start() {
   set_atlas(vanta, "default:left");
   set_atlas(billy, "default:right");
   
-  if(has_flag("intro")) {
+  if(!has_flag("intro")) {
   
     wait(2);
     fx::fade_in(3);
