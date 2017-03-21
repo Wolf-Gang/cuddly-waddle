@@ -253,8 +253,8 @@ void skipp() {
   }
 }
 
-[group fin]
+[group onward]
 void finalee() {
-  load_scene("spoop/fin");
+  load_scene("spoop/outside2", vec(get_position(get_player()).x - 18, 11.5));
 }
 
