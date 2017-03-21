@@ -67,9 +67,7 @@
             <ground x="8" y="4"/>
             <ground x="1" y="5"/>
             <ground_destroyed2 x="2" y="5"/>
-            <ground x="3" y="5" w="2"/>
-            <ground_destroyed x="5" y="5"/>
-            <ground x="6" y="5" w="2"/>
+            <ground x="3" y="5" w="5"/>
             <ground x="1" y="6" w="7"/>
             <ground x="1" y="7"/>
             <ground x="2" y="7" r="1"/>
@@ -108,7 +106,7 @@
             <ground_destroyed2 x="6" y="4"/>
             <ground_crumbles x="7" y="4"/>
             <ground x="2" y="5"/>
-            <path_end x="4" y="5" r="2"/>
+            <ground x="4" y="5"/>
             <ground x="6" y="5"/>
             <path x="4" y="6" h="11"/>
             <ground x="2" y="7"/>
@@ -134,10 +132,10 @@
             <stream x="0" y="3" h="2"/>
             <ground_crumbles x="7" y="3" r="2"/>
             <stream x="8" y="3" h="2"/>
+            <mosaic x="3" y="4"/>
             <ground_destroyed2 x="6" y="4"/>
             <stream_corner x="0" y="5" r="3"/>
             <stream_corner x="1" y="5" r="1"/>
-            <ground_destroyed2 x="3" y="5"/>
             <stream_corner x="7" y="5"/>
             <stream_corner x="8" y="5" r="2"/>
             <stream x="1" y="6" h="3"/>

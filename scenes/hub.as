@@ -1,5 +1,6 @@
 #include "spoop/entities/spoopy.as"
 #include "backend/shadows.as"
+#include "backend/emote.as"
 
 entity spoop;
 entity vanta;
@@ -122,6 +123,7 @@ void talk_vanta() {
 
 [group bill]
 void talk_billy() {
+  emote e;
   narrative::set_speaker(billy);
   fsay("Does he wish to challenge Billy?");
   switch(select("Yes", "No")) {
@@ -131,7 +133,9 @@ void talk_billy() {
       load_scene("billy/start");
       break;
     case option::second:
+	  e.add_emote(billy, emote_type::angry);
       say("Billy has a dissapoint.");
+	  e.remove_emote();
       break;
     default:
   }

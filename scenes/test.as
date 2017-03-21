@@ -3,6 +3,7 @@
 #include "backend/shadows.as"
 #include "backend/pair.as"
 #include "entities/floatythingy.as"
+#include "backend/emote.as"
 
 [start]
 void start() {
@@ -15,11 +16,22 @@ void shadow() {
   shadows::add(get_player());
 }
 
+[group talk]
+void emote_test()
+{
+	//emotes::add(get_player(), emotes::emote_type::angry);
+	emote e;
+	e.add_emote(get_player(), emote_type::angry);
+	wait(1);
+	e.remove_emote();
+}
+
 [start]
 void do_narwhal() {
   
   entity narwhal = add_character("narry");
   set_position(narwhal, vec(2, 2));
+  //emotes::add(narwhal, emotes::emote_type::frustrated);
   
   float t = 0;
   
