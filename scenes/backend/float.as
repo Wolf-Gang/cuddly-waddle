@@ -1,6 +1,6 @@
 //basically the sine function
 
-void float_entity(entity floater, float height, float period, float cycles = 1, bool accurate = true) {
+void float_entity(entity floater, float height, float period, float cycles = 1) {
   
   float t = 0;
   
@@ -19,9 +19,6 @@ void float_entity(entity floater, float height, float period, float cycles = 1, 
       if(t >= period) {
         
         t -= period;
-        
-        //if(accurate)
-          //set_z(floater, origin);
         
       }
     } while(yield());
