@@ -23,12 +23,7 @@ void door_collision() {
 [start]
 void earthquake() {
   if(!has_flag("wall_broken")) {
-    wait(10);
-    create_thread(function(args) {fx::shake(3, 1);});
-    say("rumble rumble");
-    set_flag("wall_broken");
-    set_atlas(crack, "wall_crack_2");
-    narrative::end();
+    
   }
 }
 
@@ -50,6 +45,16 @@ void wall_crack() {
     say("Nothing to see here.");
     narrative::hide();
     player::lock(false);
+    if(!has_flag("inspector")) {
+      create_thread(function(args) {
+        wait(10);
+        say("rumble rumble");
+        set_flag("wall_broken");
+        set_atlas(crack, "wall_crack_2");
+        narrative::end();
+      });
+      set_flag("inspector");
+    }
   } else {
     say("It appears you can fit\nthrough now.");
     load_scene("spoop/room2");
