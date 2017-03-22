@@ -2,6 +2,7 @@
 #include "../backend/pair.as"
 #include "../backend/float.as"
 #include "../backend/shadows.as"
+#include "../backend/emote.as"
 
 entity vanta;
 
@@ -9,9 +10,9 @@ entity vanta;
 void start()
 {
 	//temporary
-	//set_position(get_player(), vec(4.5, 10));
+	set_position(get_player(), vec(4.5, 10));
 	set_direction(get_player(), direction::up);
-	set_position(get_player(), vec(4.5, 19));
+	//set_position(get_player(), vec(4.5, 19));
 	
 	entity tDarkness = add_entity("dark_texture", "darkness");
 	set_position(tDarkness, vec(4.5, 21));
@@ -22,8 +23,10 @@ void start()
 void create_vanta()
 {
 	vanta = add_entity("vanta", "default:default");
-	set_position(vanta, vec(4.5, 2.5));
+	set_position(vanta, vec(4.5, 3.5));
 	set_depth(vanta, 1);
+	shadows::add(vanta);
+	set_z(vanta, 1.25);
 	start_animation(vanta);
 	
 	do{
@@ -68,7 +71,7 @@ void do_thunder()
 [start]
 void do_lightning() {
   entity leftLight  = create_lightning(vec(3.5, 2));
-	entity rightLight = create_lightning(vec(5.5, 2));
+  entity rightLight = create_lightning(vec(5.5, 2));
   
   float t;
   float r;
@@ -223,7 +226,9 @@ void light_torch0()
 [group vanta]
 void vanta_black()
 {
-	once_flag("potatoes");
+	emote e;
+	
+	once_flag("vanta");
 	player::lock(true);
 	
 	wait(1);
@@ -259,22 +264,25 @@ void vanta_black()
 	if(opt == 0)
 	{
 		set_flag("remembered"); 
-		//set expression to calm 
+		//set expression sprite to calm 
 		fsay("Yes, yes. Of course you do.");
 		wait(0.5);
 	}
 	else if(opt == 1)
 	{
 		set_flag("forgotten");
-		//set expression to annoyed
+		//set expression sprite to annoyed
+		e.add_emote(vanta, emote_type::angry);
 		fsay("Don't play the fool, \nignorant child!");
-		wait(0.25);
+		wait(0.5);
+		
 	}
 	
+	e.remove_emote();
 	say("Everyone in the Void knows \nof me.");
 	say("For it is I...");
 	
-	move(vanta, vec(4.5, 1.75), 1);
+	move(vanta, vec(4.5, 2.75), 1);
 	//change sprite 
 	wait(1);
 	fsay("THE GREAT");

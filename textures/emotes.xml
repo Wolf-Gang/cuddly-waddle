@@ -4,7 +4,7 @@
 	y="0"
 	w="16"
 	h="16"
-	frames="4" interval="300" loop="true"/>
+	frames="4" interval="500" loop="true"/>
 	<surprise
 	x="0"
 	y="16"
@@ -16,7 +16,7 @@
 	y="32"
 	w="16"
 	h="16"
-	frames="4" interval="100" loop="true"/>
+	frames="4" interval="200" loop="true"/>
 	<angry
 	x="0"
 	y="48"

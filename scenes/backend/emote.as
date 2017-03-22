@@ -10,10 +10,24 @@ enum emote_type
 	embarrassed
 };
 
+[start]
+void follow_target()
+{
+	
+}
+
 class emote
 {
 	entity em;
 	entity target;
+	
+	emote()
+	{}
+	
+	emote(entity tEntity, emote_type eType)
+	{
+		add_emote(tEntity, eType);
+	}
 	
 	void add_emote(entity tEntity, emote_type eType)
 	{
@@ -47,15 +61,26 @@ class emote
 		
 		set_anchor(em, anchor::center);
 		set_depth(em, fixed_depth::overlay);
-		set_z(em, pixel(get_size(target)).y + 0.25);
 		
 		start_animation(em);
-		set_position(em, get_position(target));
+		
+		create_thread(function(args)
+		{
+			entity em = entity(args["em"]);
+			entity t = entity(args["t"]);
+			
+			do{
+				if (!t.is_valid() || !em.is_valid())
+					return;
+				set_position(em, get_position(t));
+				set_z(em, pixel(get_size(t)).y + 0.25 + get_z(t));
+			} while(yield());
+			
+		}, dictionary = {{"em", em}, {"t" , target}});
 	}
 
 	void remove_emote()
 	{
 		remove_entity(em);
-		dprint("blaha");
 	}	
 };

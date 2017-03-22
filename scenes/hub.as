@@ -105,14 +105,22 @@ void talk_spoop() {
 
 [group the_king?]
 void talk_vanta() {
+
+  emote e;
   narrative::set_speaker(vanta);
-  fsay("Do you dare to defeat the \nalmighty Vanta?");
+  fsay("Do you dare defeat the \nalmighty Vanta?");
   switch(select("Yes", "No")) {
     case option::first:
       say("En garde!");
       load_scene("Vanta/dark_room");
       break;
     case option::second:
+	  narrative::hide();
+	  wait(1);
+	  e.add_emote(vanta, emote_type::silence);
+	  wait(2);
+	  e.remove_emote();
+	  wait(1);
       say("How pathetic.");
       break;
     default:
@@ -123,6 +131,7 @@ void talk_vanta() {
 
 [group bill]
 void talk_billy() {
+
   emote e;
   narrative::set_speaker(billy);
   fsay("Does he wish to challenge Billy?");

@@ -21,7 +21,7 @@
         <trigger x="5" y="6" w="1" h="1" group="floot"/>
         <trigger x="3" y="6" w="1" h="1" group="pair_test"/>
         <trigger x="6" y="5" w="1" h="1" group="talk"/>
-        <button x="4" y="2" w="1" h="1" group="talk"/>
+        <trigger x="4" y="2" w="1" h="1" group="talk"/>
     </collisionboxes>
     <collisionbaxes/>
 </scene>

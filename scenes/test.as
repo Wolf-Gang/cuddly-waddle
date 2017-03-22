@@ -21,7 +21,7 @@ void emote_test()
 {
 	//emotes::add(get_player(), emotes::emote_type::angry);
 	emote e;
-	e.add_emote(get_player(), emote_type::angry);
+	e.add_emote(get_player(), emote_type::embarrassed);
 	wait(1);
 	e.remove_emote();
 }
@@ -31,7 +31,8 @@ void do_narwhal() {
   
   entity narwhal = add_character("narry");
   set_position(narwhal, vec(2, 2));
-  //emotes::add(narwhal, emotes::emote_type::frustrated);
+  emote e;
+  e.add_emote(narwhal, emote_type::frustrated);
   
   float t = 0;
   
@@ -39,7 +40,9 @@ void do_narwhal() {
   
   do {
     
-    move(narwhal, get_position(narwhal).rotate(vec(2.5, 2.5), omega * 180 / math::pi * get_delta()), speed(omega * get_position(narwhal).distance(vec(2.5, 2.5))));
+    move(narwhal, get_position(narwhal).rotate(vec(2.5, 2.5), 
+		 omega * 180 / math::pi * get_delta()), 
+		 speed(omega * get_position(narwhal).distance(vec(2.5, 2.5))));
     
   } while(yield());
   
@@ -61,6 +64,10 @@ void lets_float() {
 void pair_things() {
 
   pair bros("narry", "vill", vec(3, 3), 2);
+  
+  emote e(bros.get_right(), emote_type::angry);
+  e.add_emote(bros.get_right(), emote_type::angry);
+  e.add_emote(bros.get_left(), emote_type::question);
   
   float theta = 0;
   
