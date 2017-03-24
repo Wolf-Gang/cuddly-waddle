@@ -113,6 +113,12 @@ class pair {
     update_positions();
   }
   
+  void move_pair(vec pPosition, float time) {
+    for(float t = 0; t < time; t += get_delta()) {
+      set_pair_position(get_pair_position() + (pPosition - get_pair_position()) * get_delta());
+    }
+  }
+    
   vec get_pair_position() const{
     
     return get_position(left);
