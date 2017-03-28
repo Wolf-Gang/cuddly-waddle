@@ -66,7 +66,7 @@ void pair_things() {
   pair bros("narry", "vill", vec(3, 3), 2);
   
   emote e(bros.get_right(), emote_type::angry);
-  e.add_emote(bros.get_right(), emote_type::angry);
+  e.add_emote(bros.get_right(), emote_type::embarrassed);
   e.add_emote(bros.get_left(), emote_type::question);
   
   float theta = 0;
