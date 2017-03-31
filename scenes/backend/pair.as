@@ -118,7 +118,11 @@ class pair {
       set_pair_position(get_pair_position() + (pPosition - get_pair_position()) * get_delta());
     }
   }
-    
+  
+  void move_pair(vec pPosition, speed pSpeed) {
+    move_pair(pPostition, get_time(get_pair_position().distance(pPosition)));
+  }
+  
   vec get_pair_position() const{
     
     return get_position(left);
