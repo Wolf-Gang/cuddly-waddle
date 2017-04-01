@@ -120,7 +120,7 @@ class pair {
   }
   
   void move_pair(vec pPosition, speed pSpeed) {
-    move_pair(pPostition, get_time(get_pair_position().distance(pPosition)));
+    move_pair(pPostition, get_time(pSpeed, get_pair_position().distance(pPosition)));
   }
   
   vec get_pair_position() const{
