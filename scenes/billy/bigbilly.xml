@@ -1,0 +1,51 @@
+<scene>
+    <boundary y="-6" w="9" h="16"/>
+    <map>
+        <texture>forest</texture>
+        <layer id="-1">
+            <ground x="-2" y="-6" w="13" h="6"/>
+            <ground x="-2" y="0" w="6" h="10"/>
+            <path_end x="4" y="0" r="3"/>
+            <ground x="5" y="0" w="6" h="9"/>
+            <path x="4" y="1" h="3" r="3"/>
+            <path x="4" y="4" h="6" r="1"/>
+            <ground x="5" y="9" w="6"/>
+        </layer>
+        <layer id="0">
+            <tree x="-2" y="-7" w="13" h="2"/>
+            <tree x="-2" y="-5" w="6"/>
+            <tree x="5" y="-5" w="6"/>
+            <tree x="-2" y="-4" w="5"/>
+            <tree x="6" y="-4" w="5"/>
+            <tree x="-2" y="-3" w="4"/>
+            <tree x="7" y="-3" w="4"/>
+            <tree x="-2" y="-2" w="3" h="4"/>
+            <tree x="8" y="-2" w="3" h="4"/>
+            <tree x="-2" y="2" w="4"/>
+            <tree x="7" y="2" w="4"/>
+            <tree x="-2" y="3" w="5"/>
+            <tree x="6" y="3" w="5"/>
+            <tree x="-2" y="4" w="6" h="5"/>
+            <tree x="5" y="4" w="6" h="4"/>
+            <tree x="5" y="8" w="6"/>
+        </layer>
+    </map>
+    <collisionboxes>
+        <wall x="3" y="4" w="1" h="6"/>
+        <wall x="2" y="3" w="1" h="1"/>
+        <wall x="1" y="2" w="1" h="1"/>
+        <wall x="0" y="-1" w="1" h="3"/>
+        <wall x="1" y="-2" w="1" h="1"/>
+        <wall x="2" y="-3" w="1" h="1"/>
+        <wall x="3" y="-4" w="1" h="1"/>
+        <wall x="4" y="-5" w="1" h="1"/>
+        <wall x="5" y="-4" w="1" h="1"/>
+        <wall x="6" y="-3" w="1" h="1"/>
+        <wall x="7" y="-2" w="1" h="1"/>
+        <wall x="8" y="-1" w="1" h="3"/>
+        <wall x="7" y="2" w="1" h="1"/>
+        <wall x="6" y="3" w="1" h="1"/>
+        <wall x="5" y="4" w="1" h="6"/>
+        <door x="4" y="9" w="1" h="1" name="south" destination="north" scene="billy/billy_intro" offsetx="0" offsety="-1"/>
+    </collisionboxes>
+</scene>
