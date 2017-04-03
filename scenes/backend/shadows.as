@@ -2,7 +2,7 @@
 
 // Functions:
 //       void shadows::add(entity pEntity, shadow_size pShadow_size = shadow_size::small)
-//       There is no remove function as there is no way to compare entities ATM.
+//       bool shadows::remove(entity pEntity);
 
 // Placement:
 //        Placement of shadows is highly
@@ -130,6 +130,19 @@ void add(entity pEntity, shadow_size pShadow_size = shadow_size::small)
 	set_anchor(new_entry.shadow, anchor::center);
 	set_depth(new_entry.shadow, fixed_depth::below);
 	shadows::priv::entries.insertLast(new_entry);
+}
+
+bool remove(entity pEntity)
+{
+	for (uint i = 0; i < shadows::priv::entries.length(); i++)
+	{
+		if (shadows::priv::entries[i].target == pEntity)
+		{
+			shadows::priv::entries.removeAt(i);
+			return true;
+		}
+	}
+	return false;
 }
 
 }

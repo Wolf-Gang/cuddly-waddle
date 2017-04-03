@@ -62,7 +62,7 @@ class emote
 		set_anchor(em, anchor::center);
 		set_depth(em, fixed_depth::overlay);
 		
-		start_animation(em);
+		animation::start(em);
 		
 		create_thread(function(args)
 		{
