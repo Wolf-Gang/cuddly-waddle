@@ -5,17 +5,5 @@
 	
 	<tile_size pixels="32"/>
 	
-	<narrative>
-		<box  texture="NarrativeBox" atlas="NarrativeBox"/>
-		
-		<expressions>
-			<yay             texture="someexpression"      atlas="yay"/>
-			<voidian_neutral texture="voidian_expressions" atlas="neutral"/>
-			<voidian_angry   texture="voidian_expressions" atlas="angry"/>
-		</expressions>
-	</narrative>
-	
-	<fonts    path="data/fonts"/>
-	<textures path="data/textures"/>
-	<sounds   path="data/sounds"/>
+	<!-- Left to the defaults -->
 </game>

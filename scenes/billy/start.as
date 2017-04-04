@@ -68,7 +68,7 @@ void thing2()
 		fx::sound("wind1", 20);
 		scoped_entity leaves = add_entity("leavesinwind");
 		set_position(leaves, player_billy_mp);
-		start_animation(leaves);
+		animation::start(leaves);
 		focus::move(player_billy_mp, 2);
 	}
 	

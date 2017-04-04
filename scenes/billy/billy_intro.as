@@ -13,7 +13,7 @@ void billywackergame()
 		set_atlas(wacker, "dance");
 		animation::start(wacker);
 		wait(1);
-		stop_animation(wacker);
+		animation::stop(wacker);
 		pathfind_move(wacker, get_position(get_player()), 4);
 		set_atlas(wacker,"attack");
 		animation::start(wacker);
@@ -95,7 +95,7 @@ void billyhere()
 	entity billy = add_character("someguy");
 	set_position(billy, vec(3.5, 3.5));
 	set_atlas(billy, "dance");
-	start_animation(billy);
+	animation::start(billy);
 	say("BOOOO!");
 	say("Billy has given you a frighten!");
 	
@@ -112,7 +112,7 @@ void billyhere()
 	{
 		scoped_entity leaves = add_entity("leavesinwind");
 		set_position(leaves, vec(4, 3.5));
-		start_animation(leaves);
+		animation::start(leaves);
 		wait(1);
 	}
 	
