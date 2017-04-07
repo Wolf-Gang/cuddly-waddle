@@ -27,7 +27,7 @@ void create_vanta()
 	set_depth(vanta, 1);
 	shadows::add(vanta);
 	set_z(vanta, 1.25);
-	start_animation(vanta);
+	animation::start(vanta);
 	
 	do{
 		float_entity(vanta, 0.3, 0.25, 16);
@@ -40,7 +40,7 @@ void create_window(vec pPosition)
 	entity window1 = add_entity("window", "rain");
 	set_position(window1, pPosition);
 	set_depth(window1, fixed_depth::below);
-	start_animation(window1);
+	animation::start(window1);
 }
 
 [start]
@@ -82,12 +82,11 @@ void do_lightning() {
     
     wait(t);
     
-    stop_animation(leftLight);
-    stop_animation(rightLight);
-    
-    dprint(formatFloat(t));
-    start_animation(leftLight);
-    start_animation(rightLight);
+    animation::stop(leftLight);
+    animation::stop(rightLight);
+	
+    animation::start(leftLight);
+    animation::start(rightLight);
 
 	//do_thunder();
     
@@ -95,12 +94,12 @@ void do_lightning() {
     
     if(r < 4) {
       wait(r * .5);
-      dprint(formatFloat(r));
-      stop_animation(leftLight);
-      stop_animation(rightLight);
+	  
+      animation::stop(leftLight);
+      animation::stop(rightLight);
       
-      start_animation(leftLight);
-      start_animation(rightLight);
+      animation::start(leftLight);
+      animation::start(rightLight);
 	  
 	  //do_thunder();
 	  
@@ -232,9 +231,9 @@ void vanta_black()
 	player::lock(true);
 	
 	wait(1);
-	start_animation(get_player());
+	animation::start(get_player());
 	pathfind_move(get_player(), vec(4.5, 5), 1.5, 0);
-	stop_animation(get_player());
+	animation::stop(get_player());
 	set_direction(get_player(), direction::up);
 	
 	wait(1);

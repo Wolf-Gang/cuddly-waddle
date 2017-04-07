@@ -120,7 +120,7 @@ class pair {
   }
   
   void move_pair(vec pPosition, speed pSpeed) {
-    move_pair(pPostition, pSpeed.get_time(get_pair_position().distance(pPosition)));
+    move_pair(pPosition, pSpeed.get_time(get_pair_position().distance(pPosition)));
   }
   
   vec get_pair_position() const{
@@ -137,8 +137,8 @@ class pair {
 
   void start_pair_animation() {
     
-    start_animation(right);
-    start_animation(left);
+    animation::start(right);
+    animation::start(left);
   }
 
   void set_pair_depth(float depth) {
