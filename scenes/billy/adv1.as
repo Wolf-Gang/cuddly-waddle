@@ -63,6 +63,104 @@ void grave_sign_text()
 	player::lock(false);
 }
 
+entity ninjaskeli_guy;
+entity ninjaskeli_guy2;
+
+[start]
+void create_ninjaskeli()
+{
+	ninjaskeli_guy = add_entity("NinjaSkeli", "sneaking");
+	set_position(ninjaskeli_guy, vec(32.5f, 5));
+	animation::start(ninjaskeli_guy);
+	set_depth(ninjaskeli_guy,fixed_depth::below);
+	
+	
+	ninjaskeli_guy2 = add_entity("NinjaSkeli", "sneaking");
+	set_position(ninjaskeli_guy2, vec(43.5f, 5));
+	animation::start(ninjaskeli_guy2);
+	set_depth(ninjaskeli_guy2,fixed_depth::below);
+}
+
+[group ninjaskeli]
+void ninjaskeli()
+{
+	player::lock(true);
+	set_direction(get_player(), direction::right);
+	
+	set_atlas(ninjaskeli_guy, "nothiding");
+	animation::start(ninjaskeli_guy);
+	wait(0.2);
+	
+	narrative::show();
+	narrative::set_expression("ninjaskeliexpr", "face");
+	
+	fsay("NYEH HEH HEH HEH HEH\nHEH HEH HEH HEH HEH...");
+	narrative::set_expression("ninjaskeliexpr", "cough_talk");
+	nl("*cough* *cough*");
+	
+	fsay("*HAK* *cough* *HAK*\nUGH *cough* *cough*");
+	narrative::set_expression("ninjaskeliexpr", "umm_talk");
+	nl("...");
+	
+	fsay("HA.");
+	wait(0.4);
+	fnl("HA.");
+	wait(0.4);
+	nl("HA.");
+	
+	narrative::set_expression("ninjaskeliexpr", "chill_talk");
+	say("Hello janky fella");
+	fnl("You may call me...");
+	wait(0.2);
+	nl("Ninja Billy");
+	
+	say("Or...\nby my nickname...");
+	say("Super sexy ninja that is\nbigger than the universe\nand is the best...");
+	say("at everything with\nnothing better to do\n-Sempai");
+	
+	say("You know what really\ngets me going?");
+	narrative::set_expression("ninjaskeliexpr", "umm_talk");
+	say("HOLES!");
+	nl("LOTS AND LOTS OF HOLES!");
+	say("This might be the last\ntime we meet...");
+	say("So REMEMBER my name.");
+	nl("For I am GREAT!");
+	narrative::end();
+	set_atlas(ninjaskeli_guy, "hiding");
+	player::lock(false);
+	group::enable("ninjaskeli", false);
+}
+
+
+[group ninjaskeli2]
+void ninjaskeli2()
+{
+	
+	player::lock(true);
+	set_direction(get_player(), direction::right);
+	
+	set_atlas(ninjaskeli_guy2, "nothiding");
+	animation::start(ninjaskeli_guy2);
+	wait(0.2);
+	
+	narrative::show();
+	narrative::set_expression("ninjaskeliexpr", "chill_talk");
+	
+	say("We meet again.\nThis must be fate.");
+	say("");
+	say("They are so creepy\nthey put shivers\ndown my....");
+	narrative::set_expression("ninjaskeliexpr", "face");
+	fsay("BONES!");
+	wait(0.2);
+	fnl("NYEH HEH HEH HEH HEH HEH\nHEH HEH~");
+	narrative::set_expression("ninjaskeliexpr", "cough_talk");
+	append(" *cough* *cough*");
+	
+	narrative::end();
+	player::lock(false);
+	group::enable("ninjaskeli", false);
+}
+
 [start]
 void create_grave_sign()
 {
