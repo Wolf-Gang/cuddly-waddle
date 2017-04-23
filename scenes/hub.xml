@@ -1,34 +1,103 @@
 <scene>
-    <boundary w="11" h="800"/>
+    <boundary w="31" h="800"/>
     <map>
-        <texture>hub</texture>
+        <texture>hub_atlas</texture>
         <layer id="0">
-            <ground x="3" y="2" w="5" h="2"/>
-            <ground x="2" y="4" w="7"/>
-            <ground x="3" y="5" w="5" h="2"/>
-            <ground x="5" y="7"/>
+            <ground x="14" y="-6" w="3"/>
+            <ground x="13" y="-5" w="5"/>
+            <ground x="12" y="-4" w="7" h="3"/>
+            <ground x="13" y="-1"/>
+            <ground x="14" y="-1" w="3" h="12"/>
+            <ground x="17" y="-1"/>
+            <ground x="4" y="11" w="2"/>
+            <ground x="13" y="11" w="5" h="3"/>
+            <ground x="25" y="11" w="2"/>
+            <ground x="3" y="12" w="4"/>
+            <ground x="12" y="12"/>
+            <ground x="18" y="12"/>
+            <ground x="24" y="12" w="4"/>
+            <ground x="3" y="13" w="10"/>
+            <ground x="18" y="13" w="10"/>
+            <ground x="3" y="14" w="25"/>
+            <ground x="3" y="15" w="10"/>
+            <ground x="13" y="15" w="5" h="3"/>
+            <ground x="18" y="15" w="10"/>
+            <ground x="3" y="16" w="4"/>
+            <gradient x="7" y="16" w="5"/>
+            <ground x="12" y="16"/>
+            <ground x="18" y="16"/>
+            <gradient x="19" y="16" w="5"/>
+            <ground x="24" y="16" w="4"/>
+            <gradient x="3" y="17"/>
+            <ground x="4" y="17" w="2"/>
+            <gradient x="6" y="17"/>
+            <gradient x="12" y="17"/>
+            <gradient x="18" y="17"/>
+            <gradient x="24" y="17"/>
+            <ground x="25" y="17" w="2"/>
+            <gradient x="27" y="17"/>
+            <gradient x="4" y="18" w="2"/>
+            <gradient x="13" y="18"/>
+            <ground x="14" y="18" w="3" h="5"/>
+            <gradient x="17" y="18"/>
+            <gradient x="25" y="18" w="2"/>
+            <ground x="13" y="23" w="5"/>
+            <ground x="12" y="24" w="7" h="2"/>
+            <gradient x="12" y="26"/>
+            <ground x="13" y="26" w="5"/>
+            <gradient x="18" y="26"/>
+            <gradient x="13" y="27" w="5"/>
         </layer>
         <layer id="1">
-            <wall x="3" y="1" w="5"/>
-            <circle x="5" y="2"/>
-            <wall x="2" y="3"/>
-            <wall x="8" y="3"/>
+            <circle x="15" y="14"/>
         </layer>
     </map>
     <collisionboxes>
-        <button x="5" y="7" w="1" h="1" group="spooper"/>
-        <button x="2" y="4" w="1" h="1" group="bill"/>
-        <button x="8" y="4" w="1" h="1" group="the_king?"/>
-        <wall x="3" y="1" w="5" h="1"/>
-        <wall x="2" y="2" w="1" h="2"/>
-        <wall x="2" y="5" w="1" h="2"/>
-        <wall x="1" y="4" w="1" h="1"/>
-        <wall x="3" y="7" w="2" h="1"/>
-        <wall x="5" y="8" w="1" h="1"/>
-        <wall x="6" y="7" w="2" h="1"/>
-        <wall x="8" y="5" w="1" h="2"/>
-        <wall x="9" y="4" w="1" h="1"/>
-        <wall x="8" y="2" w="1" h="2"/>
-        <button x="5" y="2" w="1" h="1" group="circle"/>
+        <wall x="12" y="11" w="1" h="1"/>
+        <wall x="18" y="11" w="1" h="1"/>
+        <wall x="18" y="17" w="1" h="1"/>
+        <wall x="12" y="17" w="1" h="1"/>
+        <wall x="14" y="9" w="3" h="2" group="fin"/>
+        <wall x="13" y="0" w="1" h="11"/>
+        <wall x="12" y="-1" w="1" h="1"/>
+        <wall x="11" y="-4" w="1" h="3"/>
+        <wall x="12" y="-5" w="1" h="1"/>
+        <wall x="13" y="-6" w="1" h="1"/>
+        <wall x="14" y="-7" w="3" h="1"/>
+        <wall x="17" y="-6" w="1" h="1"/>
+        <wall x="18" y="-5" w="1" h="1"/>
+        <wall x="19" y="-4" w="1" h="3"/>
+        <wall x="18" y="-1" w="1" h="1"/>
+        <wall x="17" y="0" w="1" h="11"/>
+        <wall x="7" y="12" w="5" h="1"/>
+        <wall x="7" y="16" w="5" h="1"/>
+        <wall x="6" y="17" w="1" h="1"/>
+        <wall x="4" y="18" w="2" h="1"/>
+        <wall x="3" y="17" w="1" h="1"/>
+        <wall x="2" y="12" w="1" h="5"/>
+        <wall x="3" y="11" w="1" h="1"/>
+        <wall x="4" y="10" w="2" h="1"/>
+        <wall x="6" y="11" w="1" h="1"/>
+        <wall x="17" y="18" w="1" h="5"/>
+        <wall x="13" y="18" w="1" h="5"/>
+        <wall x="12" y="23" w="1" h="1"/>
+        <wall x="11" y="24" w="1" h="2"/>
+        <wall x="12" y="26" w="1" h="1"/>
+        <wall x="13" y="27" w="5" h="1"/>
+        <wall x="18" y="26" w="1" h="1"/>
+        <wall x="19" y="24" w="1" h="2"/>
+        <wall x="18" y="23" w="1" h="1"/>
+        <wall x="19" y="16" w="5" h="1"/>
+        <wall x="19" y="12" w="5" h="1"/>
+        <wall x="24" y="11" w="1" h="1"/>
+        <wall x="25" y="10" w="2" h="1"/>
+        <wall x="27" y="11" w="1" h="1"/>
+        <wall x="28" y="12" w="1" h="5"/>
+        <wall x="27" y="17" w="1" h="1"/>
+        <wall x="25" y="18" w="2" h="1"/>
+        <wall x="24" y="17" w="1" h="1"/>
+        <button x="4.5" y="14" w="1" h="1" group="bill"/>
+        <button x="25.5" y="14" w="1" h="1" group="the_king?"/>
+        <button x="15" y="24.5" w="1" h="1" group="spooper"/>
     </collisionboxes>
 </scene>

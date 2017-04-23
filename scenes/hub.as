@@ -26,22 +26,61 @@ void start() {
     
   }
   
-  set_position(get_player(), vec(5.5, 2.7));
+  set_position(get_player(), vec(15.5, 14.7));
   
-  spoop = make_spoopy(vec(5.5, 7.7), "default:up");
-  shadows::add(spoop);
+  if (!has_flag("spoopy")) {
   
-  vanta = add_entity("vanta");
-  shadows::add(vanta);
+    spoop = make_spoopy(vec(15.5, 25.2), "default:up");
+    
+    shadows::add(spoop);
+    
+  } else {
+    
+    group::enable("spooper", false);
+    
+  }
   
-  billy = add_entity("someguy");
-  shadows::add(billy);
+  if (!has_flag("vanta")) {
   
-  set_position(vanta, vec(8.5, 4.7));
-  set_position(billy, vec(2.5, 4.7));
+    vanta = add_entity("vanta");
+    set_position(vanta, vec(26, 14.7));
+    set_atlas(vanta, "default:left");
+    
+    shadows::add(vanta);
+    
+  } else {
+    
+    group::enable("the_king?", false);
+    
+  }
   
-  set_atlas(vanta, "default:left");
-  set_atlas(billy, "default:right");
+  if (!has_flag("billy")) {
+  
+    billy = add_entity("someguy");
+    set_position(billy, vec(5, 14.7));
+    set_atlas(billy, "default:right");
+    
+    shadows::add(billy);
+    
+  } else {
+    
+    group::enable("bill", false);
+    
+  }
+  
+  if(has_flag("spoopy") && has_flag("vanta") && has_flag("billy")) {
+  
+    group::enable("fin", false);
+    
+  } else {
+    
+    entity pixel = add_entity("pixel");
+    set_anchor(pixel, anchor::bottom);
+    set_color(pixel, 0, 0, 0);
+    //set_scale(pixel, 256);
+    set_position(pixel, vec(15.5,11));
+    
+  }
   
   if(!has_flag("intro")) {
   
@@ -53,26 +92,10 @@ void start() {
   
 }
 
-[start]
-void make_circle() {
-  group::enable("circle", false);
-  entity circle;
-  if(has_flag("spoopy") && has_flag("vanta") && has_flag("billy")) {
-    
-    //have a glow around the circle
-    group::enable("circle", true);
-    
-  } else {
-    circle = add_entity("hub", "circle");
-  }
-  set_position(circle, vec(5.5, 3));
-  set_depth(circle, fixed_depth::background);
-}
-
-[group circle]
+[group finale]
 void the_end() {
   //narrative::set_skip(false);
-  set_position(get_player(), vec(5.5, 100));
+  set_position(get_player(), vec(15.5, 100));
   say("Well done.");
   say("I guess I have to keep my promise\nnow, don't I?");
   say("Ho ho! This will be fun.");
@@ -142,9 +165,9 @@ void talk_billy() {
       load_scene("billy/start");
       break;
     case option::second:
-	  e.add_emote(billy, emote_type::angry);
+      e.add_emote(billy, emote_type::angry);
       say("Billy has a dissapoint.");
-	  e.remove_emote();
+      e.remove_emote();
       break;
     default:
   }
