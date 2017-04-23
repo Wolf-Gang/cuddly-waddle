@@ -20,7 +20,7 @@ void tension() {
     set_depth(spoop, 0);
     
     alpa = add_entity("alpa", "magic");
-    start_animation(alpa);
+    animation::start(alpa);
     set_depth(alpa, 1000);
     set_position(alpa, vec(18.5, 3.5));
   }
@@ -133,6 +133,8 @@ void alpa_v_spoop() {
   
   narrative::set_skip(false);
   
+  music::open("spoop_mystery");
+  
   vec pl_pos = get_position(get_player());
   vec mid = vec(get_position(spoop).x, pl_pos.y);
   vec final = midpoint(get_position(spoop), get_position(alpa)) + vec(0, .5);
@@ -155,7 +157,7 @@ void alpa_v_spoop() {
   
   narrative::hide();
   
-  start_animation(alpa);
+  animation::start(alpa);
   
   set_depth(magic[0], 255);
   move(magic[0], get_position(spoop) + vec(0, -.3), .5);
@@ -222,7 +224,7 @@ void alpa_v_spoop() {
   narrative::end();
   
   set_atlas(spoop, "back_up");
-  start_animation(spoop);
+  animation::start(spoop);
   
   create_thread(function(args)
   {

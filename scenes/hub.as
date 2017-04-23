@@ -9,12 +9,16 @@ entity billy;
 [start]
 void start() {
   
-  if(!has_flag("intro")) {
+  music::open("doodle59");
   
+  if(!has_flag("intro")) {
+    
+    
     set_position(get_player(), vec(5.5, 100));
     
     //narrative::set_skip(false);
     say("So, you wish to challenge me?");
+    append("\n");
     append("\nVery well.");
     say("But I will have to test you\nfirst.");
     say("If you can defeat my minions,\nI will face you.");
