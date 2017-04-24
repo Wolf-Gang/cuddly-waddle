@@ -10,8 +10,6 @@ void make_clone(vec pPos, float speed = 1, bool mirror = false){
     
     const float speed = float(args["speed"]);
     
-    dprint("hello");
-    
     entity clone = entity(args["clone"]);
     
     vec pos_difference = get_position(get_player()) - get_position(clone);
