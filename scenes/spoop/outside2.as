@@ -38,5 +38,6 @@ void clone_test() {
   make_clone(vec(2, -2), .7);
   make_clone(vec(-1, -1), 5.3);
   make_clone(vec(-1.5, 1.7), .1, true);
+  make_clone(vec(-2, 2), vec(-1.2, -1.9));
 }
 

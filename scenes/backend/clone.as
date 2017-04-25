@@ -44,7 +44,7 @@ void make_clone(vec pPos, float pSpeed = 1, bool pMirror = false){
   
 }
 
-void make_clone(vec pPos, vec pScales){
+void make_clone(vec pPos, vec pScale){
   
   entity clone = add_character("somedude1");
   set_position(clone, pPos);
@@ -62,15 +62,15 @@ void make_clone(vec pPos, vec pScales){
     
     do {
       
-      movement = (get_position(get_player()) - get_position(clone)) - pos_difference;
+      movement = ((get_position(get_player()) - get_position(clone)) - pos_difference)*scale; // You can multiply vectors together
       
       if(movement.x != 0 || movement.y != 0) {
         
-        set_direction(clone, vector_direction(vec(movement.x * scale.x, movement.y * scale.y)));
+        set_direction(clone, vector_direction(movement));
         
         animation::start(clone);
         
-        set_position(clone, get_position(clone) + vec(movement.x * scale.x, movement.y, scale.y));
+        set_position(clone, get_position(clone) + vec(movement));
         
       } else{
       
