@@ -29,9 +29,7 @@ void create_vanta()
 	set_z(vanta, 1.25);
 	animation::start(vanta);
 	
-	do{
-		float_entity(vanta, 0.3, 0.25, 16);
-	}while(yield());
+	float_entity(vanta, .1, 5, -1);
 }
 
 void create_window(vec pPosition)
